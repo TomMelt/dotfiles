@@ -1,6 +1,9 @@
 "run python script
 nnoremap <buffer> <F5> :silent exec '!clear' <CR> :exec '!python3' "%" <CR>
 
+"open ftplugin file for python in split
+nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/python.vim<CR>
+
 "Jump to marker (<>)
 nnoremap <buffer> // /(<>)<CR>ca(
 inoremap <buffer> // <Esc>/(<>)<CR>ca(

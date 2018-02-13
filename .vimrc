@@ -12,8 +12,7 @@
 " 3) Autocomplete
 " 4) File Browsing
 " 5) Snippets
-" 6) Build Integration (NOT USED ATM)
-" 7) git specifics
+" 6) git specifics
 
 " ==============================
 " 0) General:
@@ -22,8 +21,11 @@
 " enter the current millenium
 set nocompatible
 
+" default split right
+set splitright
+
 " Turn on line numbers 
-set nu
+set number
 
 " Show tabs/spaces and trailing space
 set listchars=tab:▸\ ,trail:·
@@ -31,8 +33,9 @@ set list
 
 " search options
 set ignorecase smartcase hls incsearch
+"
 " to clear last used search pattern
-nnoremap <F7> :let @/ = "" <cr>
+nnoremap <F7> :let @/ = ""<CR>
 
 " turn off indent when pasting
 set pastetoggle=<F3>
@@ -51,6 +54,9 @@ vnoremap : ;
 
 "use ubuntu clipboard
 set clipboard=unnamedplus
+
+"open vimrc from any vim filetype
+nnoremap <F12> :vsplit ~/.vimrc<CR>
 
 " ==============================
 " 1) Fuzzy File Search:
@@ -140,26 +146,8 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " - Take over the world!
 "   (with much fewer keystrokes)
 
-
 " ==============================
-" 6) Build Integration: (NOT USED ATM)
-" ==============================
-" BUILD INTEGRATION:
-
-" Steal Mr. Bradley's formatter & add it to our spec_helper
-" http://philipbradley.net/rspec-into-vim-with-quickfix
-
-" Configure the `make` command to run RSpec
-"set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
-
-" NOW WE CAN:
-" - Run :make to run RSpec
-" - :cl to list errors
-" - :cc# to jump to error by number
-" - :cn and :cp to navigate forward and back
-
-" ==============================
-" 7) git specifics:
+" 6) git specifics:
 " ==============================
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
