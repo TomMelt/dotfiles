@@ -9,10 +9,10 @@ read path
 if [ -z "$path" ]
 then
 	echo "copying dot files to $HOME"
-	for i in $files; do cp -vr $i $HOME ; done
+	for i in $files; do ln -sv ~/.dotfiles/$i $HOME/$i ; done
 else
 	echo "copying dot files to "$path
-	for i in $files; do cp -vr $i $path ; done
+	for i in $files; do ln -sv ~/.dotfiles/$i $path/$i ; done
 fi
 
 
