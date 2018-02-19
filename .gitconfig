@@ -1,0 +1,11 @@
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+	s = status
+[include]
+	path = ~/.gitconfig.local

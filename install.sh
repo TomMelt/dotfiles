@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files='.ctags .gnuplot .latex_template .vim .vimrc'
+files='.ctags .gnuplot .latex_template .vim .vimrc .gitconfig'
 
 echo "Enter a destination for dot files (or hit Enter for default $HOME)"
 

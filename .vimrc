@@ -156,3 +156,12 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+
+" ==============================
+" 7) Colorscheme for vim diff
+" ==============================
+
+highlight DiffAdd cterm=none ctermfg=green ctermbg=black
+highlight DiffDelete cterm=none ctermfg=darkred ctermbg=black
+highlight DiffChange cterm=none ctermfg=none ctermbg=black
+highlight DiffText cterm=none ctermfg=black ctermbg=darkyellow
