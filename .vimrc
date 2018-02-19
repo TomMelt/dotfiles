@@ -58,6 +58,10 @@ set clipboard=unnamedplus
 "open vimrc from any vim filetype
 nnoremap <F12> :vsplit ~/.vimrc<CR>
 
+"keep text selected when changing indent in visual mode
+vnoremap > >gv
+vnoremap < <gv
+
 " ==============================
 " 1) Fuzzy File Search:
 " ==============================
