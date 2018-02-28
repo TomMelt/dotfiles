@@ -12,7 +12,7 @@ nnoremap <buffer> // /(<>)<CR>ca(
 inoremap <buffer> // <Esc>/(<>)<CR>ca(
 
 "Useful macros for bash
-inoremap <buffer> <Localleader>for for i in {(<>)}:<CR>do<CR>(<>)<ESC>/(<>)<CR>ca(
+inoremap <buffer> <Localleader>for for i in {(<>)}:<CR>do<CR>(<>)<CR>done<ESC>/(<>)<CR>ca(
 
 "comment
 vnoremap <buffer> <Localleader>c :norm i#<CR>
