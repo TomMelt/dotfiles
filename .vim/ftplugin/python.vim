@@ -1,5 +1,8 @@
+"Set local leader for latex files
+let maplocalleader = ";"
+
 "run python script
-nnoremap <buffer> <F5> :silent exec '!clear' <CR> :exec '!python3' "%" <CR>
+nnoremap <buffer> <F5> :silent exec '!clear' <CR> :exec '!python3' "%" "AVTZ"<CR>
 
 "open ftplugin file for python in split
 nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/python.vim<CR>
@@ -9,17 +12,20 @@ nnoremap <buffer> // /(<>)<CR>ca(
 inoremap <buffer> // <Esc>/(<>)<CR>ca(
 
 "Useful macros for python
-inoremap <buffer> ;for for (<>) in range((<>)):<CR>(<>)<ESC>/(<>)<CR>ca(
-inoremap <buffer> ;pr print()<ESC>i
-inoremap <buffer> ;fun def (<>)((<>)):<CR>return<ESC>/(<>)<CR>ca(
+inoremap <buffer> <Localleader>for for (<>) in range((<>)):<CR>(<>)<ESC>/(<>)<CR>ca(
+inoremap <buffer> <Localleader>pr print()<ESC>i
+inoremap <buffer> <Localleader>fun def (<>)((<>)):<CR>return<ESC>/(<>)<CR>ca(
 
 "comment
-vnoremap <buffer> ;c :norm i#<CR>
-vnoremap <buffer> ;x :norm x<CR>
+vnoremap <buffer> <Localleader>c :norm i#<CR>
+vnoremap <buffer> <Localleader>x :norm x<CR>
 
 "Useful macros for matplotlib
-inoremap <buffer> ;xl plt.xlabel(r'')<ESC>hi
-inoremap <buffer> ;yl plt.ylabel(r'')<ESC>hi
-inoremap <buffer> ;sa plt.savefig('')<ESC>hi
-inoremap <buffer> ;sh plt.show()
+inoremap <buffer> <Localleader>xl plt.xlabel(r'')<ESC>hi
+inoremap <buffer> <Localleader>yl plt.ylabel(r'')<ESC>hi
+inoremap <buffer> <Localleader>sa plt.savefig('')<ESC>hi
+inoremap <buffer> <Localleader>sh plt.show()
+
+"enumerate for loop
+inoremap <buffer> <Localleader>en <Esc>mm?for <CR>f ai,<Esc>/ in <CR>f aenumerate(<Esc>f:i)<Esc>`m:let @/ = ""<CR>i
 
