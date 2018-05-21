@@ -2,7 +2,17 @@
 let maplocalleader = ";"
 
 "run python script
-nnoremap <buffer> <F5> :silent exec '!clear' <CR> :exec '!python3' "%" "AVTZ"<CR>
+nnoremap <buffer> <F5> :silent exec '!clear' <CR> :exec '!python3' "%" <CR>
+
+"debug python
+compiler pyunit
+setlocal makeprg=flake8\ %
+setlocal errorformat=%E%f:%l:\ could\ not\ compile,
+                     \%-Z%p^,
+                     \%A%f:%l:%c:\ %t%n\ %m,
+                     \%A%f:%l:\ %t%n\ %m,
+                     \%-G%.%#
+nnoremap <buffer> <F6> :silent make<CR> <C-L> :copen<CR>
 
 "open ftplugin file for python in split
 nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/python.vim<CR>

@@ -6,6 +6,21 @@
 " ====================================================================
 " ====================================================================
 
+" OK but i need some plugins
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'tpope/vim-fugitive'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
 " 0) General
 " 1) Fuzzy File Search
 " 2) Tag jumping
@@ -26,6 +41,9 @@ set splitright
 
 " Turn on line numbers 
 set number
+
+" Enable syntax highlighting
+syntax enable
 
 " Show tabs/spaces and trailing space
 set listchars=tab:▸\ ,trail:·
@@ -116,10 +134,6 @@ command! MakeTags !ctags -R .
 " ==============================
 " 4) File Browsing:
 " ==============================
-
-" enable syntax and plugins (for netrw)
-syntax enable
-filetype plugin indent on
 
 " Tweaks for browsing
 "let g:netrw_banner=0        " disable annoying banner
