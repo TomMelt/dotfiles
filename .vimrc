@@ -14,7 +14,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+if $HOST == "xps13"
+	Plugin 'Valloric/YouCompleteMe'
+else
+	autocmd VimEnter * echo "loaded without YCM"
+endif
+
 "Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
