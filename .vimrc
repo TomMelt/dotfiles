@@ -59,7 +59,7 @@ nnoremap <S-Right> <C-W>2>
 
 " code folding
 let g:SimpylFold_docstring_preview=1
-nnoremap <S-Space> za
+nnoremap <Space> za
 
 " Turn on line numbers 
 set number
