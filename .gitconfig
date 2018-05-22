@@ -9,3 +9,5 @@
 	s = status
 [include]
 	path = ~/.gitconfig.local
+[push]
+	default = simple
