@@ -14,17 +14,21 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-if $HOST == "xps13"
-	Plugin 'pseewald/vim-anyfold'
+
+if hostname() == "xps13"
+	autocmd VimEnter * echo "vim with plugins"
+	Plugin 'delimitMate.vim'
+	Plugin 'tpope/vim-surround'
+	Plugin 'tmhedberg/SimpylFold'
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'Valloric/YouCompleteMe'
 else
-	autocmd VimEnter * echo "loaded without YCM"
+	autocmd VimEnter * echo "no plugins"
 endif
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+syntax on                    " enable syntax highlighting
 
 " 0) General
 " 1) Fuzzy File Search
@@ -53,11 +57,11 @@ nnoremap <Right> <C-W><C-L>
 nnoremap <S-Left> <C-W>2<
 nnoremap <S-Right> <C-W>2>
 
+" code folding
+let g:SimpylFold_docstring_preview=1
+
 " Turn on line numbers 
 set number
-
-" Enable syntax highlighting
-syntax enable
 
 " Show tabs/spaces and trailing space
 set listchars=tab:▸\ ,trail:·
@@ -134,6 +138,9 @@ command! MakeTags !ctags -R .
 " ==============================
 
 " The good stuff is documented in |ins-completion|
+
+" custom stuff to work with YCM
+let g:ycm_autoclose_preview_window_after_completion=1
 
 " HIGHLIGHTS:
 " - ^x^n for JUST this file
