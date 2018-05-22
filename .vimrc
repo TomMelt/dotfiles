@@ -15,12 +15,12 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 if $HOST == "xps13"
+	Plugin 'pseewald/vim-anyfold'
+	Plugin 'tpope/vim-fugitive'
 	Plugin 'Valloric/YouCompleteMe'
 else
 	autocmd VimEnter * echo "loaded without YCM"
 endif
-
-"Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -43,6 +43,15 @@ set nocompatible
 
 " default split right
 set splitright
+
+" jumping between splits
+nnoremap <Left> <C-W><C-H>
+nnoremap <Down> <C-W><C-J>
+nnoremap <Up> <C-W><C-K>
+nnoremap <Right> <C-W><C-L>
+
+nnoremap <S-Left> <C-W>2<
+nnoremap <S-Right> <C-W>2>
 
 " Turn on line numbers 
 set number
