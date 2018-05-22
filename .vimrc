@@ -14,16 +14,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'delimitMate.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'tpope/vim-fugitive'
 
 if hostname() == "xps13"
-	autocmd VimEnter * echo "vim with plugins"
-	Plugin 'delimitMate.vim'
-	Plugin 'tpope/vim-surround'
-	Plugin 'tmhedberg/SimpylFold'
-	Plugin 'tpope/vim-fugitive'
+	autocmd VimEnter * echo "YCM supported"
 	Plugin 'Valloric/YouCompleteMe'
 else
-	autocmd VimEnter * echo "no plugins"
+	autocmd VimEnter * echo "YCM not included"
 endif
 
 call vundle#end()            " required

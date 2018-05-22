@@ -5,6 +5,7 @@
 [difftool]
 	prompt = false
 [alias]
+	co = checkout
 	d = difftool
 	s = status
 [include]
