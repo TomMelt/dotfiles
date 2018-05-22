@@ -58,11 +58,13 @@ nnoremap <S-Left> <C-W>2<
 nnoremap <S-Right> <C-W>2>
 
 " code folding
+set foldlevel=2
 let g:SimpylFold_docstring_preview=1
-nnoremap <Space> za
+nnoremap <Space>j zo
+nnoremap <Space>k zc
 
 " Turn on line numbers 
-set number
+set relativenumber
 
 " Show tabs/spaces and trailing space
 set listchars=tab:▸\ ,trail:·
