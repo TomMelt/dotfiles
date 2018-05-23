@@ -10,9 +10,11 @@ if [ -z "$path" ]
 then
 	echo "removing dot files from $HOME"
 	for i in $files; do rm -ivr $HOME/$i ; done
+	rm -ivr $HOME/.config/fish/config.fish
 else
 	echo "removing dot files from $path"
 	for i in $files; do rm -ivr $path/$i ; done
+	rm -ivr $path/.config/fish/config.fish
 fi
 
 
