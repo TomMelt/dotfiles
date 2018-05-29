@@ -14,6 +14,10 @@ inoremap <buffer> <F4> <Esc>:w<CR> :!pdflatex "%" > /dev/null<CR> :!clear<CR> :!
 
 "Spell-check set to F6
 nnoremap <buffer> <F6> :setlocal spell! spelllang=en_us<CR>
+"
+"comment
+vnoremap <buffer> <Localleader>c :norm i%<CR>
+vnoremap <buffer> <Localleader>x :norm x<CR>
 
 "Jump to marker (<>)
 nnoremap <buffer> // /(<>)<CR>ca(
