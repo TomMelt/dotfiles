@@ -2,7 +2,7 @@
 let maplocalleader = ";"
 
 "run bash script
-nnoremap <buffer> <F5> :silent exec '!clear' <CR> :exec "./%"<CR>
+nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!bash "./%"<CR>
 
 "open ftplugin file for bash in split
 nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/sh.vim<CR>
@@ -12,7 +12,7 @@ nnoremap <buffer> // /(<>)<CR>ca(
 inoremap <buffer> // <Esc>/(<>)<CR>ca(
 
 "Useful macros for bash
-inoremap <buffer> <Localleader>for for i in {(<>)}:<CR>do<CR>(<>)<CR>done<ESC>/(<>)<CR>ca(
+inoremap <buffer> <Localleader>for for i in {(<>)}<CR>do<CR>(<>)<CR>done<ESC>/(<>)<CR>ca(
 
 "comment
 vnoremap <buffer> <Localleader>c :norm i#<CR>
