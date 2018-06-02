@@ -39,3 +39,6 @@ inoremap <buffer> <Localleader>sh plt.show()
 "enumerate for loop
 inoremap <buffer> <Localleader>en <Esc>mm?for <CR>f ai,<Esc>/ in <CR>f aenumerate(<Esc>f:i)<Esc>`m:let @/ = ""<CR>i
 
+"move lines in visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
