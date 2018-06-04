@@ -17,3 +17,5 @@ nnoremap <buffer> k gk
 
 "surround by backticks
 vnoremap <buffer> <Localleader>c "dc```<C-R>d```<Esc>
+
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
