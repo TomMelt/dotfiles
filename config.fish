@@ -11,17 +11,17 @@ end
 function g --description 'alias for git'
     git $argv
 end
-function vi --description 'alias vi vim'
-    vim $argv
+function vi --description 'alias vi for vim -p'
+    vim -p $argv
 end
 function docs
-	vim $HOME/rmat/ukrmol-in/release-branches/release-1.0/doc/
+	vi $HOME/rmat/ukrmol-in/release-branches/release-1.0/doc/
 end
 function sshleg
 	ssh ucaptme@legion.rc.ucl.ac.uk
 end
 function profile
-	vim $HOME/.config/fish/config.fish
+	vi $HOME/.config/fish/config.fish
 end
 function fishreload
 	source $HOME/.config/fish/config.fish

@@ -168,8 +168,12 @@ let g:ycm_autoclose_preview_window_after_completion=1
 "let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " Easier buffer switching (when multiple files are open)
-nnoremap <Tab> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
+"nnoremap <Tab> :bn<CR>
+"nnoremap <S-Tab> :bp<CR>
+set switchbuf=usetab
+nnoremap <TAB> :sbnext<CR>
+nnoremap <S-TAB> :sbprevious<CR>
+nnoremap <F8> :bd<CR>
 
 " NOW WE CAN:
 " - :edit a folder to open a file browser
