@@ -1,8 +1,11 @@
 # User specific functions
-set -q __fish_prompt_hostname
 set -x INNER_TRUNK /nfs/workspaces/rmatrix/ukrmol-in/trunk/bin_wp
 set -x INNER_RELEASE /nfs/workspaces/rmatrix/ukrmol-in/release-branches/release-1.0/bin
 set -x OUTER /nfs/workspaces/rmatrix/ukrmol-out/trunk/bin
+
+function fish_greeting
+	echo  connected to: $USER@(hostname)
+end
 
 # User specific functions
 function g --description 'alias for git'
