@@ -2,7 +2,7 @@
 let maplocalleader = ";"
 
 "run python script
-nnoremap <buffer> <F5> :silent exec '!clear' <CR> :exec '!python3' "%" <CR>
+nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!python3 "%" <CR>
 
 "debug python
 compiler pyunit
@@ -37,8 +37,10 @@ inoremap <buffer> <Localleader>sa plt.savefig('')<ESC>hi
 inoremap <buffer> <Localleader>sh plt.show()
 
 "enumerate for loop
-inoremap <buffer> <Localleader>en <Esc>mm?for <CR>f ai,<Esc>/ in <CR>f aenumerate(<Esc>f:i)<Esc>`m:let @/ = ""<CR>i
+inoremap <buffer> <Localleader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumerate(<Esc>$i)<Esc>`m:let @/ = ""<CR>i
 
+"print subitems of list
+inoremap <buffer> <Localleader>pf <Esc>yiwofor i in <C-R>+:<CR>print(i)<Esc>
 "move lines in visual mode
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
