@@ -18,13 +18,13 @@ Plugin 'delimitMate.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab'
 
 if hostname() == "xps13"
 	autocmd VimEnter * echo "YCM supported"
 	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'SirVer/ultisnips'
+	Plugin 'honza/vim-snippets'
+	Plugin 'ervandew/supertab'
 else
 	autocmd VimEnter * echo "YCM not included"
 endif
