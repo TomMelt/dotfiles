@@ -18,7 +18,7 @@ function docs
 	vi $HOME/rmat/ukrmol-in/release-branches/release-1.0/doc/
 end
 function sshleg
-	ssh ucaptme@legion.rc.ucl.ac.uk
+	ssh $LEGION
 end
 function profile
 	vi $HOME/.config/fish/config.fish
