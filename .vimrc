@@ -73,6 +73,9 @@ set relativenumber
 set listchars=tab:▸\ ,trail:·
 set list
 
+" Fix backspace
+set backspace=indent,eol,start
+
 " search options
 set ignorecase smartcase hls incsearch
 "
