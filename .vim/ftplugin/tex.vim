@@ -30,9 +30,12 @@ inoremap <buffer> <localleader>sss \subsubsection{}<Esc>i
 inoremap <buffer> <localleader>np \newpage<Esc>o
 
 inoremap <buffer> <localleader>fig \begin{figure}[h(<>)]<CR>\begin{center}<CR>\includegraphics[width=(<>)\textwidth]{./figs/(<>)}<CR>\end{center}<CR>\caption{\textbf{(<>)}. (<>).}<CR>\label{fig_(<>)}<CR>\end{figure}<Esc>6?(<>)<CR>ca(
-inoremap <buffer> <localleader>it \begin{itemize}<CR>\end{itemize}<Esc>O\item 
 inoremap <buffer> <localleader>en \begin{enumerate}<CR>\end{enumerate}<Esc>O\item 
 inoremap <buffer> <localleader>ce \begin{center}<CR>\end{center}<Esc>O
+
+"itemize
+inoremap <buffer> <localleader>it \begin{itemize}<CR>\end{itemize}<Esc>O\item 
+inoremap <buffer> <localleader>i <CR><BS>\item 
 
 "References and Citations
 inoremap <buffer> <localleader>rf Fig. \ref{fig_} (<>)<Esc>F_a
@@ -51,6 +54,8 @@ inoremap <buffer> <localleader>be \begin{align}<CR>(<>)<CR>\end{align}<Esc>/(<>)
 inoremap <buffer> <localleader>fr \frac{(<>)}{(<>)}<Esc>/(<>)<CR>ca(
 inoremap <buffer> <localleader>u ^{}<Esc>i
 inoremap <buffer> <localleader>d _{}<Esc>i
+vnoremap <buffer> <localleader>u c^{<C-R>+}
+vnoremap <buffer> <localleader>d c_{<C-R>+}
 
 "Visual remaps
 vnoremap <buffer> <localleader>bf c\textbf{}<Esc>hp
