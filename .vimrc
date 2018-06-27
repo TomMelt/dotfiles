@@ -79,11 +79,18 @@ set backspace=indent,eol,start
 " search options
 set ignorecase smartcase hls incsearch
 "
+"Spell-check set to F6
+nnoremap <buffer> <F6> :setlocal spell! spelllang=en_us<CR>
+
 " to clear last used search pattern
 nnoremap <F7> :let @/ = ""<CR>
 
-" turn off indent when pasting
-set pastetoggle=<F3>
+" toggle line numbers
+nnoremap <F3> :set relativenumber!<CR>
+
+" toggle paste mode indenting
+inoremap <F3> <Esc>:set paste!<CR>i
+
 
 " show current typed command
 set showcmd
@@ -96,6 +103,10 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+" switch * and #
+nnoremap * #
+nnoremap # *
 
 "use ubuntu clipboard
 set clipboard=unnamedplus
