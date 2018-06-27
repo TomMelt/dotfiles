@@ -91,6 +91,9 @@ nnoremap <F3> :set relativenumber!<CR>
 " toggle paste mode indenting
 inoremap <F3> <Esc>:set paste!<CR>i
 
+"move lines up/down in visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " show current typed command
 set showcmd

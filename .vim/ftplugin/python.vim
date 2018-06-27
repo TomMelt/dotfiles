@@ -41,6 +41,3 @@ inoremap <buffer> <Localleader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumera
 
 "print subitems of list
 inoremap <buffer> <Localleader>pf <Esc>yiwofor i in <C-R>+:<CR>print(i)<Esc>
-"move lines in visual mode
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
