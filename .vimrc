@@ -111,6 +111,9 @@ vnoremap : ;
 nnoremap * #
 nnoremap # *
 
+" increase maximum number of tabs that can be opened
+set tabpagemax=100
+
 "use ubuntu clipboard
 set clipboard=unnamedplus
 

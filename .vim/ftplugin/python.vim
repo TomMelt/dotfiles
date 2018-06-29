@@ -24,6 +24,7 @@ inoremap <buffer> // <Esc>/(<>)<CR>ca(
 "Useful macros for python
 inoremap <buffer> <Localleader>for for (<>) in range((<>)):<CR>(<>)<ESC>/(<>)<CR>ca(
 inoremap <buffer> <Localleader>pr print()<ESC>i
+vnoremap <buffer> <Localleader>pr "fcprint(<C-R>f)
 inoremap <buffer> <Localleader>fun def (<>)((<>)):<CR>return<ESC>/(<>)<CR>ca(
 
 "comment
@@ -41,3 +42,7 @@ inoremap <buffer> <Localleader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumera
 
 "print subitems of list
 inoremap <buffer> <Localleader>pf <Esc>yiwofor i in <C-R>+:<CR>print(i)<Esc>
+
+"highlight anything over 79 chars
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+match OverLength /\%>79v.\+/
