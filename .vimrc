@@ -88,8 +88,8 @@ nnoremap <F7> :let @/ = ""<CR>
 " toggle line numbers
 nnoremap <F3> :set relativenumber!<CR>
 
-" toggle paste mode indenting
-inoremap <F3> <Esc>:set paste!<CR>i
+" toggle paste mode
+nnoremap <S-F6> :set paste!<CR>:set paste?<CR>
 
 "move lines up/down in visual mode
 vnoremap <C-j> :m '>+1<CR>gv=gv
@@ -241,3 +241,17 @@ highlight DiffAdd cterm=none ctermfg=green ctermbg=black
 highlight DiffDelete cterm=none ctermfg=darkred ctermbg=black
 highlight DiffChange cterm=none ctermfg=none ctermbg=black
 highlight DiffText cterm=none ctermfg=black ctermbg=darkyellow
+
+
+" ==============================
+" 8) Messing around with funcs
+" ==============================
+
+function! FormatData()
+	let @a = "Gebkeeeeeeeljx;%s/-------------------//ggeeeeElGk$x0gg0"
+	let @b = "GI "
+	let @c = "15j14j$dgg$p15jV14jdgg0"
+	normal @a
+	normal @b
+	normal 10@c
+endfunction

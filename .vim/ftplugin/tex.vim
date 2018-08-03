@@ -5,8 +5,17 @@ nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/tex.vim<CR>
 let maplocalleader = ";"
 
 "Compile pdfLatex
-nnoremap <buffer> <F5> :w<CR> :!clear<CR> :!pdflatex "%" <Bar> grep -i -e warning -e error<CR> <C-L> 2h
-inoremap <buffer> <F5> <Esc>:w<CR> :!clear<CR> :!pdflatex "%" <Bar> grep -i -e warning -e error<CR> <C-L> hi
+"nnoremap <buffer> <F5> :w<CR> :!clear<CR> :!pdflatex "%" <Bar> grep -i -e warning -e error<CR> <C-L> 2h
+"inoremap <buffer> <F5> <Esc>:w<CR> :!clear<CR> :!pdflatex "%" <Bar> grep -i -e warning -e error<CR> <C-L> hi
+setlocal efm=%f:%mline\ %l.
+setlocal efm+=%f:%l:\ %m
+setlocal efm+=%f:\%m
+setlocal efm+=%-G%.%#                      " All lines not matching any of the above patterns are ignored
+
+setlocal makeprg=pdflatex\ -interaction=nonstopmode\ -file-line-error-style\ NOscattering.tex\ %\ \\\|\ python\ ~/.vim/efm_vim.py
+"setlocal makeprg=latexmk\ -pdflatex=\'pdflatex\ -file-line-error\ -interaction=nonstopmode\'\ -bibtex\ -pdf\ -f\ %\ \\\|\ python\ ~/.vim/efm_vim.py
+"setlocal makeprg=cat\ t.log
+nnoremap <buffer> <F5> :so ~/.vim/ftplugin/tex.vim<CR> :w<CR> :make<CR><C-w><Up> :copen<CR>
 
 "Compile pdfLatex with BibTex
 nnoremap <buffer> <F4> :w<CR> :!pdflatex "%" > /dev/null<CR> :!clear<CR> :!bibtex "%:r" <Bar> grep -i -e warning -e error<CR> :!pdflatex "%" > /dev/null<CR> :!pdflatex "%" <Bar> grep -i -e warning -e error<CR> :redraw!<CR> 2h
