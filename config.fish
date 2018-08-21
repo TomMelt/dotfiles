@@ -34,10 +34,13 @@ function l
 end
 
 function backup
-	rsync -avh --delete --exclude-from=$HOME/.rsync_exclude /scratch/tmeltzer/NO $HOME/Documents/Project/
+	rsync -avh --delete --delete-excluded \
+	--exclude-from=$HOME/.rsync_exclude /scratch/tmeltzer/$argv $HOME/Documents/Project/
 end
+
 function backup_DRYRUN
-	rsync -avhn --delete --exclude-from=$HOME/.rsync_exclude /scratch/tmeltzer/NO $HOME/Documents/Project/
+	rsync -avhn --delete --delete-excluded \
+	--exclude-from=$HOME/.rsync_exclude /scratch/tmeltzer/$argv $HOME/Documents/Project/
 end
 
 function cds
@@ -47,3 +50,8 @@ end
 function cdl
 	cd (cat $HOME/.lastlocation)
 end
+
+function gpp
+	git pull; and git push
+end
+
