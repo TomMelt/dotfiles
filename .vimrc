@@ -95,6 +95,9 @@ nnoremap <S-F6> :set paste!<CR>:set paste?<CR>
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+"format as table
+vnoremap ;t <Esc>:call MakeTable()<CR>
+
 " show current typed command
 set showcmd
 
@@ -248,10 +251,19 @@ highlight DiffText cterm=none ctermfg=black ctermbg=darkyellow
 " ==============================
 
 function! FormatData()
-	let @a = "Gebkeeeeeeeljx;%s/-------------------//ggeeeeElGk$x0gg0"
-	let @b = "GI "
-	let @c = "15j14j$dgg$p15jV14jdgg0"
-	normal @a
-	normal @b
-	normal 10@c
+    let @a = "Gebkeeeeeeeljx;%s/-------------------//ggeeeeElGk$x0gg0"
+    let @b = "GI "
+    let @c = "15j14j$dgg$p15jV14jdgg0"
+    normal @a
+    normal @b
+    normal 10@c
+endfunction
+
+function! MakeTable()
+    let @a = "gv;s/\ /\ \|\ /g"
+    let @b = "gv;!column -t"
+    let @c = "gv`<yyp;s/[^|]/-/g"
+    normal @a
+    normal @b
+    normal @c
 endfunction

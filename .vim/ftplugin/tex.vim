@@ -12,7 +12,7 @@ setlocal efm+=%f:%l:\ %m
 setlocal efm+=%f:\%m
 setlocal efm+=%-G%.%#                      " All lines not matching any of the above patterns are ignored
 
-setlocal makeprg=pdflatex\ -interaction=nonstopmode\ -file-line-error-style\ NOscattering.tex\ %\ \\\|\ python\ ~/.vim/efm_vim.py
+setlocal makeprg=pdflatex\ -interaction=nonstopmode\ -file-line-error-style\ %\ \\\|\ python\ ~/.vim/efm_vim.py
 "setlocal makeprg=latexmk\ -pdflatex=\'pdflatex\ -file-line-error\ -interaction=nonstopmode\'\ -bibtex\ -pdf\ -f\ %\ \\\|\ python\ ~/.vim/efm_vim.py
 "setlocal makeprg=cat\ t.log
 nnoremap <buffer> <F5> :so ~/.vim/ftplugin/tex.vim<CR> :w<CR> :make<CR><C-w><Up> :copen<CR>
