@@ -94,7 +94,7 @@ nnoremap <F7> :let @/ = ""<CR>
 nnoremap <F3> :set relativenumber!<CR>
 
 " toggle paste mode
-nnoremap <S-F6> :set paste!<CR>:set paste?<CR>
+nnoremap <F2> :set paste!<CR>:set paste?<CR>
 
 "move lines up/down in visual mode
 vnoremap <C-j> :m '>+1<CR>gv=gv
@@ -215,7 +215,7 @@ set switchbuf=usetab
 nnoremap <TAB> :sbnext<CR>
 nnoremap <S-TAB> :sbprevious<CR>
 nnoremap <F8> :bd<CR>
-nnoremap <S-F8> :qa<CR>
+nnoremap <F9> :qa<CR>
 
 " NOW WE CAN:
 " - :edit a folder to open a file browser
