@@ -51,6 +51,9 @@ set nocompatible
 " default split right
 set splitright
 
+" colorscheme fix for tmux
+set background=dark
+
 " jumping between splits
 nnoremap <Left> <C-W><C-H>
 nnoremap <Down> <C-W><C-J>
