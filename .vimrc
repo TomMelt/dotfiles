@@ -59,6 +59,8 @@ nnoremap <Right> <C-W><C-L>
 
 nnoremap <S-Left> <C-W>2<
 nnoremap <S-Right> <C-W>2>
+nnoremap <S-Down> <C-W>2+
+nnoremap <S-Up> <C-W>2-
 
 " code folding
 set foldlevel=2
