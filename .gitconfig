@@ -8,6 +8,8 @@
 	co = checkout
 	d = difftool
 	s = status
+	a = add
+	c = commit
 [include]
 	path = ~/.gitconfig.local
 [push]
