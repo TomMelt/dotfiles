@@ -15,7 +15,7 @@ setlocal efm+=%-G%.%#                      " All lines not matching any of the a
 setlocal makeprg=pdflatex\ -interaction=nonstopmode\ -file-line-error-style\ %\ \\\|\ python\ ~/.vim/efm_vim.py
 "setlocal makeprg=latexmk\ -pdflatex=\'pdflatex\ -file-line-error\ -interaction=nonstopmode\'\ -bibtex\ -pdf\ -f\ %\ \\\|\ python\ ~/.vim/efm_vim.py
 "setlocal makeprg=cat\ t.log
-nnoremap <buffer> <F5> :so ~/.vim/ftplugin/tex.vim<CR> :w<CR> :make<CR><C-w><Up> :copen<CR>
+nnoremap <buffer> <F5> :w<CR> :make<CR><C-w><Up> :copen<CR>
 
 "Compile pdfLatex with BibTex
 nnoremap <buffer> <F4> :w<CR> :!pdflatex "%" > /dev/null<CR> :!clear<CR> :!bibtex "%:r" <Bar> grep -i -e warning -e error<CR> :!pdflatex "%" > /dev/null<CR> :!pdflatex "%" <Bar> grep -i -e warning -e error<CR> :redraw!<CR> 2h

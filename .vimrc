@@ -54,6 +54,19 @@ set splitright
 " colorscheme fix for tmux
 set background=dark
 
+" tmux compatibility
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+set <S-F3>=[1;2R
+set <S-F8>=[19;2~
+
+
 " jumping between splits
 nnoremap <Left> <C-W><C-H>
 nnoremap <Down> <C-W><C-J>
@@ -94,9 +107,9 @@ nnoremap <F7> :let @/ = ""<CR>
 nnoremap <F3> :set relativenumber!<CR>
 
 " toggle paste mode
-nnoremap <F2> :set paste!<CR>:set paste?<CR>
+nnoremap <S-F3> :set paste!<CR>:set paste?<CR>
 
-"move lines up/down in visual mode
+"move lines up/down in visual mode 
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
@@ -174,11 +187,12 @@ command! MakeTags !ctags -R .
 " The good stuff is documented in |ins-completion|
 
 " custom stuff to work with YCM
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_insertion=1
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_python_binary_path = 'python3'
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -215,7 +229,7 @@ set switchbuf=usetab
 nnoremap <TAB> :sbnext<CR>
 nnoremap <S-TAB> :sbprevious<CR>
 nnoremap <F8> :bd<CR>
-nnoremap <F9> :qa<CR>
+nnoremap <S-F8> :qa<CR>
 
 " NOW WE CAN:
 " - :edit a folder to open a file browser
