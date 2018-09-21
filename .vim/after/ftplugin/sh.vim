@@ -5,7 +5,7 @@ let maplocalleader = ";"
 nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!bash "./%"<CR>
 
 "open ftplugin file for bash in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/sh.vim<CR>
+nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/sh.vim<CR>
 
 "Jump to marker (<>)
 nnoremap <buffer> // /(<>)<CR>ca(

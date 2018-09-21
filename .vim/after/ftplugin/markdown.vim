@@ -1,5 +1,5 @@
 "open ftplugin file in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/markdown.vim<CR>
+nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/markdown.vim<CR>
 
 "Set local leader for latex files
 let maplocalleader = ";"

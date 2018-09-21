@@ -15,7 +15,7 @@ setlocal errorformat=%E%f:%l:\ could\ not\ compile,
 nnoremap <buffer> <F6> :silent make<CR> <C-L> :copen<CR>
 
 "open ftplugin file for python in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/python.vim<CR>
+nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/python.vim<CR>
 
 "Jump to marker (<>)
 nnoremap <buffer> // /(<>)<CR>ca(

@@ -1,5 +1,5 @@
 "open ftplugin file for python in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/bib.vim<CR>
+nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/bib.vim<CR>
 
 "Set local leader for latex files
 let maplocalleader = ";"

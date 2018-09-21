@@ -9,7 +9,7 @@ setlocal errorformat=%f:%l:%c:\ %m,%-G%.%#
 nnoremap <buffer> <F6> :silent make<CR> <C-L> :copen<CR>
 
 "open ftplugin file for fortran in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/cpp.vim<CR>
+nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/cpp.vim<CR>
 
 "comment
 vnoremap <buffer> <Localleader>c :norm i// <CR>

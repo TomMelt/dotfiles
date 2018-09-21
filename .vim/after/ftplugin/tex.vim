@@ -1,5 +1,5 @@
 "open ftplugin file for python in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/ftplugin/tex.vim<CR>
+nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/tex.vim<CR>
 
 "Set local leader for latex files
 let maplocalleader = ";"
@@ -24,6 +24,9 @@ inoremap <buffer> <F4> <Esc>:w<CR> :!pdflatex "%" > /dev/null<CR> :!clear<CR> :!
 "comment
 vnoremap <buffer> <Localleader>c :norm i%<CR>
 vnoremap <buffer> <Localleader>x :norm x<CR>
+
+"update tags file for latex
+inoremap <buffer> <localleader>bi <Esc>:!ctags -R library.bib<CR>
 
 "Jump to marker (<>)
 nnoremap <buffer> // /(<>)<CR>ca(

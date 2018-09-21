@@ -21,10 +21,13 @@ Plugin 'tpope/vim-fugitive'
 
 if hostname() == "xps13"
 	autocmd VimEnter * echo "YCM supported"
+	Plugin 'mileszs/ack.vim'
+	Plugin 'w0rp/ale'
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'SirVer/ultisnips'
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
+	let g:ackhighlight = 1
 else
 	autocmd VimEnter * echo "YCM not included"
 endif
@@ -104,7 +107,7 @@ nnoremap <buffer> <F6> :setlocal spell! spelllang=en_us<CR>
 nnoremap <F7> :let @/ = ""<CR>
 
 " toggle line numbers
-nnoremap <F3> :set relativenumber!<CR>
+nnoremap <F3> :call ChangeNumber()<CR>
 
 " toggle paste mode
 nnoremap <S-F3> :set paste!<CR>:set paste?<CR>
@@ -112,9 +115,6 @@ nnoremap <S-F3> :set paste!<CR>:set paste?<CR>
 "move lines up/down in visual mode 
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-
-"format as table
-vnoremap ;t <Esc>:call MakeTable()<CR>
 
 " show current typed command
 set showcmd
@@ -144,6 +144,12 @@ nnoremap <F12> :vsplit ~/.vimrc<CR>
 "keep text selected when changing indent in visual mode
 vnoremap > >gv
 vnoremap < <gv
+
+"navigate quickfix searches
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprev<CR>
+nnoremap ]Q :clast<CR>
+nnoremap [Q :cfirst<CR>
 
 " ==============================
 " 1) Fuzzy File Search:
@@ -209,7 +215,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " NOW WE CAN:
 " - Use ^n and ^p to go back and forth in the suggestion list
 
-
 " ==============================
 " 4) File Browsing:
 " ==============================
@@ -226,8 +231,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "nnoremap <Tab> :bn<CR>
 "nnoremap <S-Tab> :bp<CR>
 set switchbuf=usetab
-nnoremap <TAB> :sbnext<CR>
-nnoremap <S-TAB> :sbprevious<CR>
+nnoremap <TAB> :tabn<CR>
+nnoremap <S-TAB> :tabN<CR>
 nnoremap <F8> :bd<CR>
 nnoremap <S-F8> :qa<CR>
 
@@ -236,24 +241,11 @@ nnoremap <S-F8> :qa<CR>
 " - <CR>/v/t to open in an h-split/v-split/tab
 " - check |netrw-browse-maps| for more mappings
 
-
-" ==============================
-" 5) Snippets:
-" ==============================
-
-" Read an empty HTML template and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
-
-" NOW WE CAN:
-" - Take over the world!
-"   (with much fewer keystrokes)
-
 " ==============================
 " 6) git specifics:
 " ==============================
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
-
 
 " ==============================
 " 7) Colorscheme for vim diff
@@ -264,10 +256,20 @@ highlight DiffDelete cterm=none ctermfg=darkred ctermbg=black
 highlight DiffChange cterm=none ctermfg=none ctermbg=black
 highlight DiffText cterm=none ctermfg=black ctermbg=darkyellow
 
-
 " ==============================
 " 8) Messing around with funcs
 " ==============================
+
+function! ChangeNumber()
+	if &relativenumber && !&number
+		set relativenumber!
+		set number
+	elseif &number
+		set number!
+	elseif !&relativenumber
+		set relativenumber
+	endif
+endfunction
 
 function! FormatData()
     let @a = "Gebkeeeeeeeljx;%s/-------------------//ggeeeeElGk$x0gg0"
@@ -278,11 +280,3 @@ function! FormatData()
     normal 10@c
 endfunction
 
-function! MakeTable()
-    let @a = "gv;s/\ /\ \|\ /g"
-    let @b = "gv;!column -t"
-    let @c = "gv`<yyp;s/[^|]/-/g"
-    normal @a
-    normal @b
-    normal @c
-endfunction
