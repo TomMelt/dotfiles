@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 STATUS=$(xsetwacom --get "Wacom Bamboo 16FG 4x5 Finger touch" touch)
 echo $STATUS
