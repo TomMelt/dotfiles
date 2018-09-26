@@ -18,3 +18,6 @@ inoremap <buffer> <Localleader>for for i in {(<>)}<CR>do<CR>(<>)<CR>done<ESC>/(<
 vnoremap <buffer> <Localleader>c :norm i#<CR>
 vnoremap <buffer> <Localleader>x :norm x<CR>
 
+"shebang
+nnoremap <buffer> <Localleader># i#!/bin/bash<Esc>o<CR>
+
