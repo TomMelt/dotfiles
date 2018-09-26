@@ -1,7 +1,7 @@
 # User specific functions
 set -x INNER_TRUNK /nfs/workspaces/rmatrix/ukrmol-in/trunk/bin_wp
 set -x INNER_RELEASE /nfs/workspaces/rmatrix/ukrmol-in/release-branches/release-1.0/bin
-set -x OUTER /nfs/workspaces/rmatrix/ukrmol-out/trunk/bin
+set -x OUTER /nfs/workspaces/rmatrix/ukrmol-out/trunk/bin_wp
 
 function fish_greeting
 	echo  connected to: $USER@(hostname)
@@ -41,11 +41,15 @@ function backup_DRYRUN
 end
 
 function cds
-	pwd > $HOME/.lastlocation
+	~/.cdl.sh -s
 end
 
 function cdl
-	cd (cat $HOME/.lastlocation)
+	cd (~/.cdl.sh -l)
+end
+
+function cdr
+	~/.cdl.sh -r
 end
 
 function gpp
