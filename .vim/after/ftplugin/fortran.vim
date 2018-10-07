@@ -9,13 +9,8 @@ nnoremap <buffer> <F6> :silent !make<CR> <C-L> :copen<CR>
 set makeprg=gfortran\ %:t\ -o\ %:t:r
 setlocal errorformat=%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
 
-
 "open ftplugin file for fortran in split
 nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/fortran.vim<CR>
-
-"Jump to marker (<>)
-nnoremap <buffer> // /(<>)<CR>ca(
-inoremap <buffer> // <Esc>/(<>)<CR>ca(
 
 "comment
 vnoremap <buffer> <Localleader>c :norm i!<CR>
@@ -23,7 +18,13 @@ vnoremap <buffer> <Localleader>x :norm x<CR>
 
 let fortran_do_enddo=1
 let fortran_more_precise=1
-let fortran_have_tabs=1
+let fortran_have_tabs=0
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+let textwidth=132
 
 " do not use fixed source
 let fortran_fixed_source = 0
