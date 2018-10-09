@@ -19,5 +19,5 @@ vnoremap <buffer> <Localleader>c :norm i#<CR>
 vnoremap <buffer> <Localleader>x :norm x<CR>
 
 "shebang
-nnoremap <buffer> <Localleader># i#!/bin/bash<Esc>o<CR>
+inoremap <buffer> <Localleader># #!/bin/bash<Esc>o<CR>
 
