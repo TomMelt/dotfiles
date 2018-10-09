@@ -22,7 +22,6 @@ Plugin 'tpope/vim-fugitive'
 if hostname() == "xps13"
 	autocmd VimEnter * echo "YCM supported"
 	Plugin 'mileszs/ack.vim'
-	Plugin 'w0rp/ale'
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'SirVer/ultisnips'
 	Plugin 'honza/vim-snippets'
