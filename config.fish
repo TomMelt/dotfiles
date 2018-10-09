@@ -88,3 +88,7 @@ function man --description 'Format and display manual pages'
     end
     command man $argv
 end
+
+function qfind --description 'look for any file recursively under $HOME'
+    find $HOME/ -iname "$argv"
+end
