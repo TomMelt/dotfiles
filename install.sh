@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files='.ctags .gnuplot .latex_template .tmux.conf .vim .vimrc .gitconfig'
+files='.ctags .gnuplot .tmux.conf .vim .vimrc .gitconfig'
 tpm=~/.tmux/plugins/tpm
 
 echo "(I)nstall or (R)emove?"
