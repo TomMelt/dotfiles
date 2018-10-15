@@ -19,13 +19,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
 
-if hostname() == "xps13"
+if hostname() == "xps13" || hostname() == "shiba"
 	autocmd VimEnter * echo "YCM supported"
 	Plugin 'mileszs/ack.vim'
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'SirVer/ultisnips'
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
+	Plugin 'dag/vim-fish'
 	let g:ackhighlight = 1
 else
 	autocmd VimEnter * echo "YCM not included"
