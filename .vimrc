@@ -19,7 +19,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
 
-if hostname() == "xps13" || hostname() == "shiba"
+if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	autocmd VimEnter * echo "YCM supported"
 	Plugin 'mileszs/ack.vim'
 	Plugin 'Valloric/YouCompleteMe'
