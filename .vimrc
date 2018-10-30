@@ -9,6 +9,7 @@
 " OK but i need some plugins
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set shell=/bin/bash
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -27,6 +28,7 @@ if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
 	Plugin 'dag/vim-fish'
+	Plugin 'lervag/vimtex'
 	let g:ackhighlight = 1
 else
 	autocmd VimEnter * echo "YCM not included"
