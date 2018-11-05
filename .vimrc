@@ -19,6 +19,8 @@ Plugin 'delimitMate.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'lervag/vimtex'
 
 if hostname() == "xps13" || hostname() == "shiba"
 	autocmd VimEnter * echo "YCM supported"
@@ -28,7 +30,6 @@ if hostname() == "xps13" || hostname() == "shiba"
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
 	Plugin 'dag/vim-fish'
-	Plugin 'lervag/vimtex'
 	let g:ackhighlight = 1
 else
 	autocmd VimEnter * echo "YCM not included"
@@ -71,7 +72,6 @@ endif
 set <S-F3>=[1;2R
 set <S-F8>=[19;2~
 
-
 " jumping between splits
 nnoremap <Left> <C-W><C-H>
 nnoremap <Down> <C-W><C-J>
@@ -86,6 +86,7 @@ nnoremap <S-Up> <C-W>2-
 " code folding
 set foldlevel=2
 let g:SimpylFold_docstring_preview=1
+let g:vimtex_fold_enabled=1
 nnoremap <Space>j zo
 nnoremap <Space>k zc
 
@@ -233,6 +234,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "nnoremap <Tab> :bn<CR>
 "nnoremap <S-Tab> :bp<CR>
 set switchbuf=usetab
+set switchbuf+=newtab
 nnoremap <TAB> :tabn<CR>
 nnoremap <S-TAB> :tabN<CR>
 nnoremap <F8> :bd<CR>
