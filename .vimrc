@@ -22,7 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'lervag/vimtex'
 
-if hostname() == "xps13" || hostname() == "shiba"
+if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	autocmd VimEnter * echo "YCM supported"
 	Plugin 'mileszs/ack.vim'
 	Plugin 'Valloric/YouCompleteMe'
