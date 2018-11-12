@@ -19,6 +19,7 @@ Plugin 'delimitMate.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
 
 if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	autocmd VimEnter * echo "YCM supported"
@@ -37,6 +38,8 @@ endif
 call vundle#end()            " required
 filetype plugin indent on    " required
 syntax on                    " enable syntax highlighting
+
+au! BufRead,BufNewFile *.melt setfiletype melt
 
 " 0) General
 " 1) Fuzzy File Search
@@ -85,6 +88,7 @@ nnoremap <S-Up> <C-W>2-
 
 " code folding
 set foldlevel=2
+let g:markdown_folding = 1
 let g:SimpylFold_docstring_preview=1
 nnoremap <Space>j zo
 nnoremap <Space>k zc

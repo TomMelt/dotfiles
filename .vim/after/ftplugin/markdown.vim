@@ -8,6 +8,11 @@ let maplocalleader = ";"
 nnoremap <buffer> // /(<>)<CR>ca(
 inoremap <buffer> // <Esc>/(<>)<CR>ca(
 
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+
+nnoremap <Tab> zAzjzAz
+nnoremap <S-Tab> zazkzA[zz
+
 "move in docs
 nnoremap <buffer> j gj
 nnoremap <buffer> k gk

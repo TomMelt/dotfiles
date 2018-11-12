@@ -33,18 +33,9 @@ nnoremap <buffer> // /(<>)<CR>ca(
 inoremap <buffer> // <Esc>/(<>)<CR>ca(
 
 "Useful macros for latex enviroments
-inoremap <buffer> <localleader>s \section{}<Esc>i
-inoremap <buffer> <localleader>ss \subsection{}<Esc>i
-inoremap <buffer> <localleader>sss \subsubsection{}<Esc>i
 inoremap <buffer> <localleader>np \newpage<Esc>o
 
 inoremap <buffer> <localleader>fig \begin{figure}[h(<>)]<CR>\begin{center}<CR>\includegraphics[width=(<>)\textwidth]{./figs/(<>)}<CR>\end{center}<CR>\caption{\textbf{(<>)}. (<>).}<CR>\label{fig_(<>)}<CR>\end{figure}<Esc>6?(<>)<CR>ca(
-inoremap <buffer> <localleader>en \begin{enumerate}<CR>\end{enumerate}<Esc>O\item 
-inoremap <buffer> <localleader>ce \begin{center}<CR>\end{center}<Esc>O
-
-"itemize
-inoremap <buffer> <localleader>it \begin{itemize}<CR>\end{itemize}<Esc>O\item 
-inoremap <buffer> <localleader>i <CR><BS>\item 
 
 "References and Citations
 inoremap <buffer> <localleader>rf Fig. \ref{fig_} (<>)<Esc>F_a
@@ -53,10 +44,6 @@ inoremap <buffer> <localleader>re Eq. \ref{eq_} (<>)<Esc>F_a
 inoremap <buffer> <localleader>ci <Esc>ciw\cite{} (<>)<Esc>F{pa<C-X><C-]>
 
 "Format text
-inoremap <buffer> <localleader>em \emph{}<Esc>i
-inoremap <buffer> <localleader>bf \textbf{}<Esc>i
-inoremap <buffer> <localleader>mr \mathrm{}<Esc>i
-inoremap <buffer> <localleader>tt \texttt{}<Esc>i
 inoremap <buffer> <localleader>ma $$<Esc>i
 inoremap <buffer> <localleader>mm $\mathrm{}$<Esc>hi
 
@@ -72,9 +59,6 @@ vnoremap <buffer> <localleader>d c_{<C-R>+}
 vnoremap <buffer> <localleader>do c\dot{<C-R>+}
 
 "Visual remaps
-vnoremap <buffer> <localleader>bf c\textbf{}<Esc>hp
-vnoremap <buffer> <localleader>tt c\texttt{}<Esc>hp
-vnoremap <buffer> <localleader>em c\emph{}<Esc>hp
 vnoremap <buffer> <localleader>mr c\mathrm{}<Esc>hp
 vnoremap <buffer> <localleader>mm c$\mathrm{}$<Esc>2hp
 
