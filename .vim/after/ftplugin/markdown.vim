@@ -8,7 +8,7 @@ let maplocalleader = ";"
 nnoremap <buffer> // /(<>)<CR>ca(
 inoremap <buffer> // <Esc>/(<>)<CR>ca(
 
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'fortran', 'tex']
 
 nnoremap <Tab> zAzjzAz
 nnoremap <S-Tab> zazkzA[zz
