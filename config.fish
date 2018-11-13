@@ -1,7 +1,7 @@
 # User specific functions
 set -x INNER_TRUNK /nfs/workspaces/rmatrix/ukrmol-in/trunk/bin_wp
 set -x INNER_RELEASE /nfs/workspaces/rmatrix/ukrmol-in/release-branches/release-1.0/bin
-set -x OUTER /nfs/workspaces/rmatrix/ukrmol-out/trunk/bin_wp
+set -x OUTER /nfs/workspaces/rmatrix/ukrmol-out/trunk/bin
 
 function fish_greeting
 	echo  connected to: $USER@(hostname)
@@ -90,5 +90,5 @@ function man --description 'Format and display manual pages'
 end
 
 function qfind --description 'look for any file recursively under $HOME'
-    find $HOME/ -iname "$argv"
+    find . -iname "$argv"
 end
