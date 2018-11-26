@@ -2,12 +2,14 @@
 let maplocalleader = ";"
 
 ""run fortran script
-nnoremap <buffer> <F5> :make<CR> :copen<CR>
-nnoremap <buffer> <F6> :silent !make<CR> <C-L> :copen<CR>
+nnoremap <buffer> <F5> :silent make<CR> :copen<CR>
+nnoremap <buffer> <F6> :silent !make -C build/ <CR> <C-L> :copen<CR>
 
 ""debug fortran
-set makeprg=gfortran\ %:t\ -o\ %:t:r
+"set makeprg=gfortran\ %:t\ -o\ %:t:r
+set makeprg=make\ -C\ ./build/
 setlocal errorformat=%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
+setlocal efm+=%-G%.%# " All lines not matching any of the above patterns are ignored
 
 "open ftplugin file for fortran in split
 nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/fortran.vim<CR>
