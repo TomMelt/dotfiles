@@ -1,22 +1,16 @@
-"Set local leader for latex files
-let maplocalleader = ";"
-
-""run fortran script
+"run fortran script
 nnoremap <buffer> <F5> :silent make<CR> :copen<CR>
 nnoremap <buffer> <F6> :silent !make -C build/ <CR> <C-L> :copen<CR>
 
-""debug fortran
+"debug fortran
 "set makeprg=gfortran\ %:t\ -o\ %:t:r
 set makeprg=make\ -C\ ./build/
 setlocal errorformat=%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
 setlocal efm+=%-G%.%# " All lines not matching any of the above patterns are ignored
 
-"open ftplugin file for fortran in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/fortran.vim<CR>
-
 "comment
-vnoremap <buffer> <Localleader>c :norm i!<CR>
-vnoremap <buffer> <Localleader>x :norm x<CR>
+vnoremap <buffer> <leader>c :norm i!<CR>
+vnoremap <buffer> <leader>x :norm x<CR>
 
 let fortran_do_enddo=1
 let fortran_more_precise=1

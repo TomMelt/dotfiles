@@ -1,6 +1,3 @@
-"Set local leader for latex files
-let maplocalleader = ";"
-
 "run python script
 nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!python3 "%" <CR>
 
@@ -14,34 +11,25 @@ setlocal errorformat=%E%f:%l:\ could\ not\ compile,
                      \%-G%.%#
 nnoremap <buffer> <F6> :silent make<CR> <C-L> :copen<CR>
 
-"open ftplugin file for python in split
-nnoremap <buffer> <F2> :vsplit ~/.vim/after/ftplugin/python.vim<CR>
-
-"Jump to marker (<>)
-nnoremap <buffer> // /(<>)<CR>ca(
-inoremap <buffer> // <Esc>/(<>)<CR>ca(
-
 "Useful macros for python
-inoremap <buffer> <Localleader>for for (<>) in range((<>)):<CR>(<>)<ESC>/(<>)<CR>ca(
-inoremap <buffer> <Localleader>pr print()<ESC>i
-vnoremap <buffer> <Localleader>pr "fcprint(<C-R>f)
-inoremap <buffer> <Localleader>fun def (<>)((<>)):<CR>return<ESC>/(<>)<CR>ca(
+inoremap <buffer> <leader>for for (<>) in range((<>)):<CR>(<>)<ESC>/(<>)<CR>ca(
+inoremap <buffer> <leader>pr print()<ESC>i
+vnoremap <buffer> <leader>pr "fcprint(<C-R>f)
+inoremap <buffer> <leader>fun def (<>)((<>)):<CR>return<ESC>/(<>)<CR>ca(
 
 "comment
-vnoremap <buffer> <Localleader>c :norm i#<CR>
-vnoremap <buffer> <Localleader>x :norm x<CR>
+vnoremap <buffer> <leader>c :norm i#<CR>
+vnoremap <buffer> <leader>x :norm x<CR>
 
 "Useful macros for matplotlib
-inoremap <buffer> <Localleader>xl plt.xlabel(r'')<ESC>hi
-inoremap <buffer> <Localleader>yl plt.ylabel(r'')<ESC>hi
-inoremap <buffer> <Localleader>sa plt.savefig('')<ESC>hi
-inoremap <buffer> <Localleader>sh plt.show()
+inoremap <buffer> <leader>xl plt.xlabel(r'')<ESC>hi
+inoremap <buffer> <leader>yl plt.ylabel(r'')<ESC>hi
 
 "enumerate for loop
-inoremap <buffer> <Localleader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumerate(<Esc>$i)<Esc>`m:let @/ = ""<CR>i
+inoremap <buffer> <leader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumerate(<Esc>$i)<Esc>`m:let @/ = ""<CR>i
 
 "print subitems of list
-inoremap <buffer> <Localleader>pf <Esc>yiwofor i in <C-R>+:<CR>print(i)<Esc>
+inoremap <buffer> <leader>pf <Esc>yiwofor i in <C-R>+:<CR>print(i)<Esc>
 
 "highlight anything over 79 chars
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
