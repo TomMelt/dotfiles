@@ -19,6 +19,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
+Plugin 'dag/vim-fish'
 
 if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	autocmd VimEnter * echo "YCM supported"
@@ -27,7 +28,6 @@ if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	Plugin 'SirVer/ultisnips'
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
-	Plugin 'dag/vim-fish'
 	Plugin 'lervag/vimtex'
 	let g:ackhighlight = 1
 else
