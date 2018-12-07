@@ -1,15 +1,13 @@
-" ====================================================================
-" ====================================================================
+" =============================================
+"  ADAPTED FROM: github.com/mcantor/no_plugins
+" =============================================
 
-"    GENERAL VIM SETUP ADAPTED FROM: github.com/mcantor/no_plugins 
+" PLUGINS: {{{1
+"==============
 
-" ====================================================================
-" ====================================================================
-
-" OK but i need some plugins
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set shell=/bin/bash
+set nocompatible     "  be iMproved, required
+filetype off         "  required
+set shell=/bin/bash  "  because I use fish in the terminal
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -21,6 +19,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
+Plugin 'dag/vim-fish'
 
 if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	autocmd VimEnter * echo "YCM supported"
@@ -29,39 +28,67 @@ if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	Plugin 'SirVer/ultisnips'
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
-	Plugin 'dag/vim-fish'
 	Plugin 'lervag/vimtex'
 	let g:ackhighlight = 1
 else
 	autocmd VimEnter * echo "YCM not included"
 endif
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-syntax on                    " enable syntax highlighting
+call vundle#end()          "  required
+filetype plugin indent on  "  required
+syntax on                  "  enable syntax highlighting
 
-" 0) General
-" 1) Fuzzy File Search
-" 2) Tag jumping
-" 3) Autocomplete
-" 4) File Browsing
-" 5) Snippets
-" 6) git specifics
+" GENERAL SETTINGS: {{{1
+"=======================
 
-" ==============================
-" 0) General:
-" ==============================
+set nocompatible                        "  enter the current millenium
+let mapleader = ";"                     "  set leader key
+set background=dark                     "  colorscheme fix for tmux
+set relativenumber                      "  Turn on line numbers
+set listchars=tab:▸\ ,trail:·           "  Show tabs/spaces and trailing space
+set list
+set backspace=indent,eol,start          "  Fix backspace
+set ignorecase smartcase hls incsearch  "  search options
+set showcmd                             "  show current typed command
+set clipboard=unnamedplus               "  access system clipboard
 
-" enter the current millenium
-set nocompatible
+" savefile
+nnoremap <Space><Space> :w<cr>
+" switch ; and :
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+" switch * and #
+nnoremap * #
+nnoremap # *
+" spellcheck
+nnoremap <buffer> <F6> :set spell!<CR>
+" clear last used search pattern
+nnoremap <F7> :let @/ =  ""<CR>
+" toggle line numbers
+nnoremap <F3> :call ChangeNumber()<CR>
+" toggle paste mode
+nnoremap <S-F3> :set paste!<CR>:set paste?<CR>
+" open custom ftplugin files
+nnoremap <F2> :call Customft()<CR>
+" open vimrc from any vim filetype
+nnoremap <F12> :vsplit ~/.vimrc<CR>
+" move lines up/down in visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+" change indent of lines
+vnoremap > >gv
+vnoremap < <gv
+" navigate quickfix searches
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprev<CR>
+" create tag file for project
+command! MakeTags !ctags -R .
 
-" default split right
-set splitright
+" TMUX SETTINGS: {{{1
+"====================
 
-" colorscheme fix for tmux
-set background=dark
-
-" tmux compatibility
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
     execute "set <xUp>=\e[1;*A"
@@ -70,21 +97,38 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
-set <S-F3>=[1;2R
+set <S-F3>=[1;2R   " these allow me to use shift and fn keys in tmux
 set <S-F8>=[19;2~
 
-" jumping between splits
+" TAB SETTINGS: {{{1
+"===================
+
+set splitright               "  default split right
+set tabpagemax=100           "  increase max. no. of tabs
+set switchbuf=usetab         "  if already open jump to tab
+set switchbuf+=newtab        "  otherwise use new tab
+
+                             "  navigate tabs using TAB
+nnoremap <TAB> :tabn<CR>
+nnoremap <S-TAB> :tabN<CR>
+                             "  close current tab
+nnoremap <F8> :bd<CR>
+                             "  close all tabs
+nnoremap <S-F8> :qa<CR>
+                             "  moving between splits
 nnoremap <Left> <C-W><C-H>
 nnoremap <Down> <C-W><C-J>
 nnoremap <Up> <C-W><C-K>
 nnoremap <Right> <C-W><C-L>
-
+                             "  resizing splits
 nnoremap <S-Left> <C-W>2<
 nnoremap <S-Right> <C-W>2>
 nnoremap <S-Down> <C-W>2+
 nnoremap <S-Up> <C-W>2-
 
-" code folding
+" CODE FOLDS: {{{1
+"=================
+
 set foldlevel=2
 let g:markdown_folding = 1
 let g:SimpylFold_docstring_preview=1
@@ -92,110 +136,14 @@ let g:vimtex_fold_enabled=1
 nnoremap <Space>j zo
 nnoremap <Space>k zc
 
-" Turn on line numbers 
-set relativenumber
+" FUZZY FILE SEARCH: {{{1
+"========================
 
-" Show tabs/spaces and trailing space
-set listchars=tab:▸\ ,trail:·
-set list
+set path+=** " recursice fuzzy search
+set wildmenu " display all matches when tab completing
 
-" Fix backspace
-set backspace=indent,eol,start
-
-" search options
-set ignorecase smartcase hls incsearch
-"
-"Spell-check set to F6
-nnoremap <buffer> <F6> :setlocal spell! spelllang=en_us<CR>
-
-" to clear last used search pattern
-nnoremap <F7> :let @/ = ""<CR>
-
-" toggle line numbers
-nnoremap <F3> :call ChangeNumber()<CR>
-
-" toggle paste mode
-nnoremap <S-F3> :set paste!<CR>:set paste?<CR>
-
-"move lines up/down in visual mode 
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
-" show current typed command
-set showcmd
-
-" savefile
-nnoremap <Space><Space> :w<cr>
-
-" switch ; and :
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
-
-" switch * and #
-nnoremap * #
-nnoremap # *
-
-" increase maximum number of tabs that can be opened
-set tabpagemax=100
-
-"use ubuntu clipboard
-set clipboard=unnamedplus
-
-"open vimrc from any vim filetype
-nnoremap <F12> :vsplit ~/.vimrc<CR>
-
-"keep text selected when changing indent in visual mode
-vnoremap > >gv
-vnoremap < <gv
-
-"navigate quickfix searches
-nnoremap ]q :cnext<CR>
-nnoremap [q :cprev<CR>
-nnoremap ]Q :clast<CR>
-nnoremap [Q :cfirst<CR>
-
-" ==============================
-" 1) Fuzzy File Search:
-" ==============================
-
-" Search down into subfolders
-" Provides tab-completion for all file-related tasks
-set path+=**
-
-" Display all matching files when we tab complete
-set wildmenu
-
-" NOW WE CAN:
-" - Hit tab to :find by partial match
-" - Use * to make it fuzzy
-
-" THINGS TO CONSIDER:
-" - :b lets you autocomplete any open buffer
-
-
-" ==============================
-" 2) Tag Jumping:
-" ==============================
-
-" Create the `tags` file (may need to install ctags first)
-command! MakeTags !ctags -R .
-
-" NOW WE CAN:
-" - Use ^] to jump to tag under cursor
-" - Use g^] for ambiguous tags
-" - Use ^t to jump back up the tag stack
-
-" THINGS TO CONSIDER:
-" - This doesn't help if you want a visual list of tags
-
-
-" ==============================
-" 3) Autocomplete!!! :
-" ==============================
-
-" The good stuff is documented in |ins-completion|
+" AUTOCOMPLETE: {{{1
+"===================
 
 " custom stuff to work with YCM
 let g:ycm_autoclose_preview_window_after_insertion=1
@@ -211,61 +159,28 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" HIGHLIGHTS:
-" - ^x^n for JUST this file
-" - ^x^f for filenames (works with our path trick!)
-" - ^x^] for tags only
-" - ^n for anything specified by the 'complete' option
+" NETRW: {{{1
+"============
 
-" NOW WE CAN:
-" - Use ^n and ^p to go back and forth in the suggestion list
-
-" ==============================
-" 4) File Browsing:
-" ==============================
-
-" Tweaks for browsing
-"let g:netrw_banner=0        " disable annoying banner
-"let g:netrw_browse_split=4  " open in prior window
-"let g:netrw_altv=1          " open splits to the right
-"let g:netrw_liststyle=3     " tree view
+"let g:netrw_banner=0                            "  disable annoying banner
+"let g:netrw_browse_split=4                      "  open in prior window
+"let g:netrw_altv=1                              "  open splits to the right
+"let g:netrw_liststyle=3                         "  tree view
 "let g:netrw_list_hide=netrw_gitignore#Hide()
 "let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-" Easier buffer switching (when multiple files are open)
-"nnoremap <Tab> :bn<CR>
-"nnoremap <S-Tab> :bp<CR>
-set switchbuf=usetab
-set switchbuf+=newtab
-nnoremap <TAB> :tabn<CR>
-nnoremap <S-TAB> :tabN<CR>
-nnoremap <F8> :bd<CR>
-nnoremap <S-F8> :qa<CR>
-
-" NOW WE CAN:
-" - :edit a folder to open a file browser
-" - <CR>/v/t to open in an h-split/v-split/tab
-" - check |netrw-browse-maps| for more mappings
-
-" ==============================
-" 6) git specifics:
-" ==============================
-
-autocmd Filetype gitcommit setlocal spell textwidth=72
-
-" ==============================
-" 7) Colorscheme for vim diff
-" ==============================
+" COLORS FOR VIMDIFF: {{{1
+"=========================
 
 highlight DiffAdd cterm=none ctermfg=green ctermbg=black
 highlight DiffDelete cterm=none ctermfg=darkred ctermbg=black
 highlight DiffChange cterm=none ctermfg=none ctermbg=black
 highlight DiffText cterm=none ctermfg=black ctermbg=darkyellow
 
-" ==============================
-" 8) Messing around with funcs
-" ==============================
+" CUSTOM FUNCTIONS: {{{1
+"=======================
 
+" loop through line number settings
 function! ChangeNumber()
 	if &relativenumber && !&number
 		set relativenumber!
@@ -277,12 +192,15 @@ function! ChangeNumber()
 	endif
 endfunction
 
-function! FormatData()
-    let @a = "Gebkeeeeeeeljx;%s/-------------------//ggeeeeElGk$x0gg0"
-    let @b = "GI "
-    let @c = "15j14j$dgg$p15jV14jdgg0"
-    normal @a
-    normal @b
-    normal 10@c
+" open ftplugin file for current buffer in vsplit (if it exists)
+function! Customft()
+	let myft = &filetype
+	let path = '~/.vim/after/ftplugin/' . myft . '.vim'
+	if myft == 'vim'
+		execute 'q'
+	elseif !empty(glob(path))
+		execute 'vsplit ' . path
+	else
+		echom "error: custom ftplugin not found"
+	endif
 endfunction
-
