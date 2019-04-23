@@ -8,6 +8,9 @@ nnoremap <S-Tab> zazkzA[zz
 nnoremap <buffer> j gj
 nnoremap <buffer> k gk
 
+"make header underlined
+nnoremap <buffer> <leader>h yypV:s/./=/g<CR>:nohls<CR>o<Esc>
+
 "surround by backticks
 vnoremap <buffer> <leader>c "dc```<C-R>d```<Esc>
 

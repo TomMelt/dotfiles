@@ -25,6 +25,8 @@ vnoremap <buffer> <leader>x :norm x<CR>
 inoremap <buffer> <leader>xl plt.xlabel(r'')<ESC>hi
 inoremap <buffer> <leader>yl plt.ylabel(r'')<ESC>hi
 
+vnoremap <buffer> <leader>f :!format_arguments<CR>mm/#formatoptionEND<CR>mnkV`m=`ndd
+
 "enumerate for loop
 inoremap <buffer> <leader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumerate(<Esc>$i)<Esc>`m:let @/ = ""<CR>i
 
