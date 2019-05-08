@@ -44,8 +44,9 @@ syntax on                  "  enable syntax highlighting
 
 set nocompatible                        "  enter the current millenium
 let mapleader = ";"                     "  set leader key
+set nowrap
 set background=dark                     "  colorscheme fix for tmux
-set relativenumber                      "  Turn on line numbers
+set number                              "  Turn on line numbers
 set listchars=tab:▸\ ,trail:·           "  Show tabs/spaces and trailing space
 set list
 set backspace=indent,eol,start          "  Fix backspace

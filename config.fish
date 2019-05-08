@@ -1,7 +1,7 @@
 # User specific functions
-set -x INNER_TRUNK /nfs/workspaces/rmatrix/ukrmol-in/trunk/bin_wp
-set -x INNER_RELEASE /nfs/workspaces/rmatrix/ukrmol-in/release-branches/release-1.0/bin
-set -x OUTER /nfs/workspaces/rmatrix/ukrmol-out/trunk/bin
+# set -x INNER_TRUNK /nfs/workspaces/rmatrix/ukrmol-in/trunk/bin_wp
+# set -x INNER_RELEASE /nfs/workspaces/rmatrix/ukrmol-in/release-branches/release-1.0/bin
+# set -x OUTER /nfs/workspaces/rmatrix/ukrmol-out/trunk/bin
 
 function fish_greeting
 	echo  connected to: $USER@(hostname)
@@ -31,13 +31,15 @@ function l
 end
 
 function backup
+	echo "backing up $argv to $HOME/Documents/Project/"
 	rsync -avh --delete --delete-excluded \
-	--exclude-from=$HOME/.rsync_exclude /scratch/tmeltzer/$argv $HOME/Documents/Project/
+	--exclude-from=$HOME/.rsync_exclude $argv $HOME/Documents/Project/
 end
 
 function backup_DRYRUN
+	echo "backing up $argv to $HOME/Documents/Project/"
 	rsync -avhn --delete --delete-excluded \
-	--exclude-from=$HOME/.rsync_exclude /scratch/tmeltzer/$argv $HOME/Documents/Project/
+	--exclude-from=$HOME/.rsync_exclude $argv $HOME/Documents/Project/
 end
 
 function cds

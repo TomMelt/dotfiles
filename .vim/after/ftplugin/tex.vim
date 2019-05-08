@@ -1,6 +1,8 @@
 "better indenting
 setlocal expandtab shiftwidth=2 tabstop=2
 
+set textwidth=100
+
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
