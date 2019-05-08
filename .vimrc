@@ -29,6 +29,7 @@ if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
 	Plugin 'lervag/vimtex'
+	Plugin 'junegunn/goyo.vim'
 	let g:ackhighlight = 1
 else
 	autocmd VimEnter * echo "YCM not included"
