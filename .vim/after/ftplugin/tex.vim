@@ -3,10 +3,6 @@ setlocal expandtab shiftwidth=2 tabstop=2
 
 set textwidth=100
 
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
-
 "Compile pdfLatex
 setlocal efm=%f:%l:\ %m
 setlocal efm+=%-G%.%#                      " All lines not matching any of the above patterns are ignored
@@ -40,8 +36,7 @@ inoremap <buffer> <leader>re Eq. \ref{eq_} (<>)<Esc>F_a
 inoremap <buffer> <leader>ci <Esc>ciw\cite{} (<>)<Esc>F{pa<C-X><C-]>
 
 "Format text
-inoremap <buffer> <leader>ma $$<Esc>i
-inoremap <buffer> <leader>mm $\mathrm{}$<Esc>hi
+inoremap <buffer> <leader>mm $$<Esc>i
 
 "Equations
 inoremap <buffer> \q \quad

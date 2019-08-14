@@ -1,8 +1,8 @@
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'fortran', 'tex']
 
 "navigate folds for presentation mode
-nnoremap <Tab> zAzjzAz
-nnoremap <S-Tab> zazkzA[zz
+"nnoremap <Tab> zAzjzAz
+"nnoremap <S-Tab> zazkzA[zz
 
 "move in docs
 nnoremap <buffer> j gj

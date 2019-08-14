@@ -206,3 +206,8 @@ function! Customft()
 		echom "error: custom ftplugin not found"
 	endif
 endfunction
+
+" ULTISNIPS {{{1
+"===============
+
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
