@@ -23,14 +23,13 @@ Plugin 'dag/vim-fish'
 
 if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
 	autocmd VimEnter * echo "YCM supported"
-	Plugin 'mileszs/ack.vim'
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'SirVer/ultisnips'
 	Plugin 'honza/vim-snippets'
 	Plugin 'ervandew/supertab'
 	Plugin 'lervag/vimtex'
-	Plugin 'junegunn/goyo.vim'
-	let g:ackhighlight = 1
+	Plugin 'junegunn/fzf'
+	Plugin 'junegunn/fzf.vim'
 else
 	autocmd VimEnter * echo "YCM not included"
 endif
@@ -43,7 +42,7 @@ syntax on                  "  enable syntax highlighting
 "=======================
 
 set nocompatible                        "  enter the current millenium
-let mapleader = ";"                     "  set leader key
+let mapleader = "\\"                     "  set leader key
 set nowrap
 set background=dark                     "  colorscheme fix for tmux
 set number                              "  Turn on line numbers
@@ -65,7 +64,7 @@ vnoremap : ;
 nnoremap * #
 nnoremap # *
 " spellcheck
-nnoremap <buffer> <F6> :set spell!<CR>
+nnoremap <F6> :set spell!<CR>
 " clear last used search pattern
 nnoremap <F7> :let @/ =  ""<CR>
 " toggle line numbers
@@ -87,6 +86,11 @@ nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
 " create tag file for project
 command! MakeTags !ctags -R .
+nnoremap <leader>t :silent! MakeTags<CR><C-l>
+"source vimrc
+nnoremap <leader>r :so /home/melt/.vimrc<CR>
+" CTRL-P to fuzzy find files
+nnoremap <C-p> :Files <CR>
 
 " TMUX SETTINGS: {{{1
 "====================
@@ -127,6 +131,12 @@ nnoremap <S-Left> <C-W>2<
 nnoremap <S-Right> <C-W>2>
 nnoremap <S-Down> <C-W>2+
 nnoremap <S-Up> <C-W>2-
+
+let g:fzf_action = {
+			\ 'enter': 'tab split',
+			\ 'ctrl-t': 'tab split',
+			\ 'ctrl-x': 'split',
+			\ 'ctrl-v': 'vsplit' }
 
 " CODE FOLDS: {{{1
 "=================

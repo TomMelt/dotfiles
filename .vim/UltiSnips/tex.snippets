@@ -6,6 +6,10 @@ snippet sin "\sin()"
 \\sin(${1:${VISUAL:text}}) ${0}
 endsnippet
 
+snippet bf "bold text" i
+\\textbf{${1:${VISUAL:text}}}${0}
+endsnippet
+
 snippet align "align environment"
 \\begin{align}
 ${1}
@@ -17,10 +21,79 @@ snippet ma "inline math"
 \$${1:${VISUAL:text}}\$ ${0}
 endsnippet
 
-snippet fracd "1st partial deriv"
+snippet frac "1st partial deriv"
 \\frac{\partial${1:num}}{\partial${2:denom}} ${0}
 endsnippet
 
-snippet fracdd "2nd partial deriv"
+snippet fracd "2nd partial deriv"
 \\frac{\partial${1:num}}{\partial${2:denom}} ${0}
+endsnippet
+
+snippet rf "ref figure"
+Fig. \\ref{fig:${1}} ${0}
+endsnippet
+
+snippet rt "ref table"
+Table \\ref{tab:${1}} ${0}
+endsnippet
+
+snippet re "ref equation"
+Eq. \\ref{eq:${1}} ${0}
+endsnippet
+
+snippet ci "cite" i
+\\cite{${1:${VISUAL:ref}}} ${0}
+endsnippet
+
+snippet cn "citeasnoun" i
+\\citeasnoun{${1:${VISUAL:ref}}} ${0}
+endsnippet
+
+snippet fig "Figure environment" b
+\begin{figure}[${2:htpb}]
+	\centering
+	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
+	\caption[${5}]{${6}}
+	\label{fig:${4/.*\/(\w+)\.\w+/$1/}}
+\end{figure}
+${0}
+endsnippet
+
+snippet test "test"
+testing this snippert ${0}
+endsnippet
+
+snippet part "Part" b
+\part{${1:part name}}
+\label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/ga}}}
+
+$0
+endsnippet
+
+snippet cha "Chapter" b
+\chapter{${1:chapter name}}
+\label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet
+
+snippet sec "Section"
+\section{${1:${VISUAL:section name}}}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet
+
+snippet sub "Subsection"
+\subsection{${1:${VISUAL:subsection name}}}
+\label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet
+
+snippet ssub "Subsubsection"
+\subsubsection{${1:${VISUAL:subsubsection name}}}
+\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
 endsnippet
