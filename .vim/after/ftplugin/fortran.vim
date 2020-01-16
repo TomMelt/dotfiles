@@ -12,6 +12,8 @@ setlocal efm+=%-G%.%# " All lines not matching any of the above patterns are ign
 vnoremap <buffer> <leader>c :norm i!<CR>
 vnoremap <buffer> <leader>x :norm x<CR>
 
+let fortran_fold=1
+set foldmethod=syntax
 let fortran_do_enddo=1
 let fortran_more_precise=1
 let fortran_have_tabs=0
