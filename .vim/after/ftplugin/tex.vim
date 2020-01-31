@@ -12,6 +12,7 @@ vnoremap <buffer> <leader>x :norm x<CR>
 "Useful macros for latex environments
 inoremap <buffer> <leader>np \newpage<CR>
 inoremap <buffer> <leader>f <Esc>mmvipgqvip:s/ \s\+/ /ge<CR>:nohls<CR>`m
+nnoremap <buffer> <leader>f mmvipgqvip:s/ \s\+/ /ge<CR>:nohls<CR>`m
 
 "move in latex docs
 nnoremap <buffer> j gj
@@ -28,4 +29,4 @@ endif
 
 command! MakeTags !ctags -R *.bib
 
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '-G "\.tex" --color-path="0;33"', <bang>0)
+"command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '-G "\.tex" --color-path="0;33"', <bang>0)

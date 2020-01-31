@@ -1,5 +1,6 @@
 "run python script
-nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!python3 "%" "data/table.png" <CR>
+"nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!python3 "%" "data/test3.png" <CR>
+nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!python3 "%"<CR>
 
 "debug python
 compiler pyunit

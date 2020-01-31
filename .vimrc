@@ -144,7 +144,6 @@ let g:fzf_action = {
 set foldlevel=2
 let g:markdown_folding = 1
 let g:SimpylFold_docstring_preview=1
-let g:vimtex_fold_enabled=1
 nnoremap <Space>j zo
 nnoremap <Space>k zc
 
