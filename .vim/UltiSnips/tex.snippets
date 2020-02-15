@@ -10,11 +10,10 @@ snippet bf "bold text" i
 \\textbf{${1:${VISUAL:text}}}${0}
 endsnippet
 
-snippet align "align environment"
+snippet eq "equation environment"
 \\begin{align}
-${1}
+	${0:${VISUAL}}
 \\end{align}
-${0}
 endsnippet
 
 snippet ma "inline math"
@@ -22,10 +21,14 @@ snippet ma "inline math"
 endsnippet
 
 snippet frac "1st partial deriv"
+\\frac{${1:num}}{${2:denom}} ${0}
+endsnippet
+
+snippet fracp "1st partial deriv"
 \\frac{\partial${1:num}}{\partial${2:denom}} ${0}
 endsnippet
 
-snippet fracd "2nd partial deriv"
+snippet fracpp "2nd partial deriv"
 \\frac{\partial${1:num}}{\partial${2:denom}} ${0}
 endsnippet
 

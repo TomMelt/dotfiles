@@ -279,6 +279,10 @@ syntax match texStatementBeamer '\\only\(<[^>]*>\)\?' contains=texBeamerOpt
 syntax match texStatementBeamer '\\item<[^>]*>' contains=texBeamerOpt
 
 syntax match texInputFile
+      \ '\\import{.*}{.*}'
+      \ contains=texStatement,texBeamerOpt,texInputCurlies,texInputFileOpt
+
+syntax match texInputFile
       \ '\\includegraphics<[^>]*>\(\[.\{-}\]\)\=\s*{.\{-}}'
       \ contains=texStatement,texBeamerOpt,texInputCurlies,texInputFileOpt
 
