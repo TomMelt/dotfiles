@@ -21,7 +21,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
 Plugin 'dag/vim-fish'
 
-if hostname() == "xps13" || hostname() == "shiba" || hostname() == "mogu"
+if hostname() == "niko" || hostname() == "shiba" || hostname() == "mogu"
 	autocmd VimEnter * echo "YCM supported"
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'SirVer/ultisnips'

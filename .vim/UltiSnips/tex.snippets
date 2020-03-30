@@ -1,9 +1,9 @@
 snippet cos "\cos()"
-\\cos(${1:${VISUAL:text}}) ${0}
+\\cos(${1:${VISUAL:text}})${0}
 endsnippet
 
 snippet sin "\sin()"
-\\sin(${1:${VISUAL:text}}) ${0}
+\\sin(${1:${VISUAL:text}})${0}
 endsnippet
 
 snippet bf "bold text" i
@@ -17,39 +17,39 @@ snippet eq "equation environment"
 endsnippet
 
 snippet ma "inline math"
-\$${1:${VISUAL:text}}\$ ${0}
+\$${1:${VISUAL:text}}\$${0}
 endsnippet
 
 snippet frac "1st partial deriv"
-\\frac{${1:num}}{${2:denom}} ${0}
+\\frac{${1:num}}{${2:denom}}${0}
 endsnippet
 
 snippet fracp "1st partial deriv"
-\\frac{\partial${1:num}}{\partial${2:denom}} ${0}
+\\frac{\partial${1:num}}{\partial${2:denom}}${0}
 endsnippet
 
 snippet fracpp "2nd partial deriv"
-\\frac{\partial${1:num}}{\partial${2:denom}} ${0}
+\\frac{\partial${1:num}}{\partial${2:denom}}${0}
 endsnippet
 
 snippet rf "ref figure"
-Fig. \\ref{fig:${1}} ${0}
+Fig. \\ref{fig:${1}}${0}
 endsnippet
 
 snippet rt "ref table"
-Table \\ref{tab:${1}} ${0}
+Table \\ref{tab:${1}}${0}
 endsnippet
 
 snippet re "ref equation"
-Eq. \\ref{eq:${1}} ${0}
+Eq. \\ref{eq:${1}}${0}
 endsnippet
 
 snippet ci "cite"
-\\cite{${1:${VISUAL:ref}}} ${0}
+\\cite{${1:${VISUAL:ref}}}${0}
 endsnippet
 
 snippet cn "citeasnoun"
-\\citeasnoun{${1:${VISUAL:ref}}} ${0}
+\\citeasnoun{${1:${VISUAL:ref}}}${0}
 endsnippet
 
 snippet fig "Figure environment" b
@@ -60,10 +60,6 @@ snippet fig "Figure environment" b
 	\label{fig:${4/.*\/(\w+)\.\w+/$1/}}
 \end{figure}
 ${0}
-endsnippet
-
-snippet test "test"
-testing this snippert ${0}
 endsnippet
 
 snippet part "Part" b
