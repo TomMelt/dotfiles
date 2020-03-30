@@ -64,6 +64,7 @@ vnoremap : ;
 nnoremap * #
 nnoremap # *
 " spellcheck
+set spelllang=en_gb
 nnoremap <F6> :set spell!<CR>
 " clear last used search pattern
 nnoremap <F7> :let @/ =  ""<CR>
