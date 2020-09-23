@@ -29,6 +29,7 @@ if hostname() == "niko" || hostname() == "shiba" || hostname() == "strizkov"
 	Plugin 'lervag/vimtex'
 	Plugin 'junegunn/fzf'
 	Plugin 'junegunn/fzf.vim'
+"	Plugin 'natebosch/vim-lsc'
 else
 	autocmd VimEnter * echo "YCM not included"
 endif
@@ -116,6 +117,8 @@ set switchbuf=usetab         "  if already open jump to tab
 set switchbuf+=newtab        "  otherwise use new tab
 
                              "  navigate tabs using TAB
+                             "  use ctrl_I e.g. TAB as jump list
+nnoremap <leader>o <TAB>
 nnoremap <TAB> :tabn<CR>
 nnoremap <S-TAB> :tabN<CR>
                              "  close current tab
@@ -217,7 +220,28 @@ function! Customft()
 	endif
 endfunction
 
-" ULTISNIPS {{{1
-"===============
+" ULTISNIPS: {{{1
+"================
 
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+
+" FORTRAN LAGUAGE SERVER: {{{1
+" ============================
+
+let g:lsc_server_commands = {'fortran': 'fortls'}
+
+let g:lsc_auto_map = {
+    \ 'GoToDefinition': '<C-]>',
+    \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+    \ 'FindReferences': 'gr',
+    \ 'NextReference': '<C-n>',
+    \ 'PreviousReference': '<C-p>',
+    \ 'FindImplementations': 'gI',
+    \ 'FindCodeActions': 'ga',
+    \ 'Rename': 'gR',
+    \ 'ShowHover': v:true,
+    \ 'DocumentSymbol': 'go',
+    \ 'WorkspaceSymbol': 'gS',
+    \ 'SignatureHelp': 'gm',
+    \ 'Completion': 'completefunc',
+    \}

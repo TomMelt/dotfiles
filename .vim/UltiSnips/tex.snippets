@@ -6,6 +6,62 @@ snippet sin "\sin()"
 \\sin(${1:${VISUAL:text}})${0}
 endsnippet
 
+snippet Xstate "Xstate" i
+$X \ ^1\Sigma_g^+$${0}
+endsnippet
+
+snippet bstate "bstate" i
+$b \ ^3\Sigma_u^+$${0}
+endsnippet
+
+snippet Bstate "Bstate" i
+$B \ ^1\Sigma_u^+$${0}
+endsnippet
+
+snippet cstate "cstate" i
+$c \ ^3\Pi_u$${0}
+endsnippet
+
+snippet astate "astate" i
+$a \ ^3\Sigma_g^+$${0}
+endsnippet
+
+snippet Cstate "Cstate" i
+$C \ ^1\Pi_u$${0}
+endsnippet
+
+snippet EFstate "EFstate" i
+$EF \ ^1\Sigma_g^+$${0}
+endsnippet
+
+snippet estate "estate" i
+$e \ ^3\Sigma_u^+$${0}
+endsnippet
+
+snippet Bpstate "Bpstate" i
+$B^\prime \ ^1\Sigma_u^+$${0}
+endsnippet
+
+snippet hstate "hstate" i
+$h \ ^3\Sigma_g^+$${0}
+endsnippet
+
+snippet GKstate "GKstate" i
+$GK \ ^1\Sigma_g^+$${0}
+endsnippet
+
+snippet dstate "dstate" i
+$d \ ^3\Pi_u$${0}
+endsnippet
+
+snippet gstate "gstate" i
+$g \ ^3\Sigma_g^+$${0}
+endsnippet
+
+snippet h2 "H2" i
+H$_2$${0}
+endsnippet
+
 snippet bf "bold text" i
 \\textbf{${1:${VISUAL:text}}}${0}
 endsnippet
@@ -61,7 +117,7 @@ snippet fig "Figure environment" b
 	\centering
 	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
 	\caption[${5}]{${6}}
-	\label{fig:${4/.*\/(\w+)\.\w+/$1/}}
+	\label{fig:${4/(.*\/)*(\w+)\.\w+/$2/}}
 \end{figure}
 ${0}
 endsnippet
