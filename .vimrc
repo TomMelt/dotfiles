@@ -53,6 +53,8 @@ set ignorecase smartcase hls incsearch  "  search options
 set showcmd                             "  show current typed command
 set clipboard=unnamedplus               "  access system clipboard
 
+let g:tex_flavor = 'latex'
+
 set nojoinspaces
 " savefile
 nnoremap <Space><Space> :w<cr>

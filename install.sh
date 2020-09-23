@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files='.ctags .gnuplot .tmux.conf .vim .vimrc .gitconfig'
+files='.ctags .gnuplot .tmux.conf .vim .vimrc .gitconfig .bash_aliases'
 
 echo "(I)nstall or (R)emove?"
 
