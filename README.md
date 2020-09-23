@@ -4,13 +4,12 @@ This repo contains my collection of shamelessly stolen dot files and config opti
 
 dot files for:
 - vim
-- fish
 - tmux
 - ctags
 - git
 - gnuplot
 
-The most extensive are those for vim and fish
+The most extensive are those for vim
 
 Installation
 ============
