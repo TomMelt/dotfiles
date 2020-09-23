@@ -53,6 +53,7 @@ set ignorecase smartcase hls incsearch  "  search options
 set showcmd                             "  show current typed command
 set clipboard=unnamedplus               "  access system clipboard
 
+set nojoinspaces
 " savefile
 nnoremap <Space><Space> :w<cr>
 " switch ; and :
