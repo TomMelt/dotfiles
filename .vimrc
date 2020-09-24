@@ -20,7 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
 
-if hostname() == "niko" || hostname() == "shiba" || hostname() == "strizkov"
+if hostname() == "niko" || hostname() == "crantock" || hostname() == "strizkov"
 	autocmd VimEnter * echo "YCM supported"
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'SirVer/ultisnips'
