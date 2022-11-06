@@ -1,0 +1,12 @@
+{
+  "themes": {
+    "gruvboxcustom": {
+      "commandName": "bold, red",
+      "mainDescription": "",
+      "exampleDescription": "green",
+      "exampleCode": "red",
+      "exampleToken": ""
+    }
+  },
+  "theme": "gruvboxcustom"
+}

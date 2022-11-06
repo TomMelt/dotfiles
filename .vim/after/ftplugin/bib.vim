@@ -1,0 +1,2 @@
+"comment
+set commentstring=%\ %s

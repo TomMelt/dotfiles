@@ -1,0 +1,12 @@
+# import matplotlib.pyplot as plt
+# plt.style.use('/home/melt/.mpl-style')
+
+figure.dpi       : 200
+lines.linewidth  : 0.8
+lines.markersize : 2
+xtick.labelsize  : small
+ytick.labelsize  : small
+text.usetex      : True
+font.family      : serif
+font.size        : 10
+legend.fontsize  : 6

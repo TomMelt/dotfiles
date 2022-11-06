@@ -1,0 +1,9 @@
+--langdef=bibtex
+--langmap=bibtex:.bib
+--regex-bibtex=/@string\{([^ "#%')(,=}{]+)/\1/s,BibTeX-Strings/i
+--regex-bibtex=/@(article|book|booklet|inbook|incollection|inproceedings|manual|masterthesis|misc|phdthesis|proceedings|techreport|unpublished)\{([^,]+),/\2/e,BibTeX-Entries/i
+--langdef=idl
+--langmap=idl:.pro
+--regex-idl=/^[ \t]*pro[ \t]*([a-zA-Z0-9_]+)/\1/p,procedure/i
+--regex-idl=/^[ \t]*function[ \t]*([a-zA-Z0-9_]+)/\1/f,function/i
+--python-kinds=-i

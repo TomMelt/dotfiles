@@ -1,0 +1,238 @@
+snippet cos "\cos()"
+\\cos(${1:${VISUAL:text}})${0}
+endsnippet
+
+snippet sin "\sin()"
+\\sin(${1:${VISUAL:text}})${0}
+endsnippet
+
+snippet h2oX "h2oX" i
+X~$^2$B$_1$${0}
+endsnippet
+
+snippet h2oA "h2oA" i
+A~$^2$A$_1$${0}
+endsnippet
+
+snippet h2oB "h2oB" i
+B~$^2$B$_2$${0}
+endsnippet
+
+snippet n2oX "n2oX" i
+X~$^2\Pi$${0}
+endsnippet
+
+snippet n2oA "n2oA" i
+A~$^2\Sigma^+$${0}
+endsnippet
+
+snippet n2oB "n2oB" i
+B~$^2\Pi$${0}
+endsnippet
+
+snippet n2oC "n2oC" i
+C~$^2\Sigma^+$${0}
+endsnippet
+
+snippet form10 "form10" i
+10~a$^\prime$${0}
+endsnippet
+
+snippet form9 "form9" i
+9~a$^\prime$${0}
+endsnippet
+
+snippet form8 "form8" i
+8~a$^\prime$${0}
+endsnippet
+
+snippet form7 "form7" i
+7~a$^\prime$${0}
+endsnippet
+
+snippet form2 "form2" i
+2~a$^{\prime\prime}$${0}
+endsnippet
+
+snippet form1 "form1" i
+1~a$^{\prime\prime}$${0}
+endsnippet
+
+snippet psi4 "psi4" i
+{\sc Psi4}${0}
+endsnippet
+
+snippet molpro "Molpro" i
+{\sc Molpro}${0}
+endsnippet
+
+#snippet Xstate "Xstate" i
+#$X \ ^1\Sigma_g^+$${0}
+#endsnippet
+#
+#snippet bstate "bstate" i
+#$b \ ^3\Sigma_u^+$${0}
+#endsnippet
+#
+#snippet Bstate "Bstate" i
+#$B \ ^1\Sigma_u^+$${0}
+#endsnippet
+#
+#snippet cstate "cstate" i
+#$c \ ^3\Pi_u$${0}
+#endsnippet
+#
+#snippet astate "astate" i
+#$a \ ^3\Sigma_g^+$${0}
+#endsnippet
+#
+#snippet Cstate "Cstate" i
+#$C \ ^1\Pi_u$${0}
+#endsnippet
+#
+#snippet EFstate "EFstate" i
+#$EF \ ^1\Sigma_g^+$${0}
+#endsnippet
+#
+#snippet estate "estate" i
+#$e \ ^3\Sigma_u^+$${0}
+#endsnippet
+#
+#snippet Bpstate "Bpstate" i
+#$B^\prime \ ^1\Sigma_u^+$${0}
+#endsnippet
+#
+#snippet hstate "hstate" i
+#$h \ ^3\Sigma_g^+$${0}
+#endsnippet
+#
+#snippet GKstate "GKstate" i
+#$GK \ ^1\Sigma_g^+$${0}
+#endsnippet
+#
+#snippet dstate "dstate" i
+#$d \ ^3\Pi_u$${0}
+#endsnippet
+#
+#snippet gstate "gstate" i
+#$g \ ^3\Sigma_g^+$${0}
+#endsnippet
+
+snippet h2 "H2" i
+H$_2$${0}
+endsnippet
+
+snippet h2o "H2O" i
+H$_2$O${0}
+endsnippet
+
+snippet n2o "N2O" i
+N$_2$O${0}
+endsnippet
+
+snippet hcooh "HCOOH" i
+CH$_2$O$_2$${0}
+endsnippet
+
+snippet bf "bold text" i
+\\textbf{${1:${VISUAL:text}}}${0}
+endsnippet
+
+snippet eq "equation environment"
+\\begin{align}
+	${0:${VISUAL}}
+\\end{align}
+endsnippet
+
+snippet ma "inline math"
+\$${1:${VISUAL:text}}\$${0}
+endsnippet
+
+snippet frac "1st partial deriv"
+\\frac{${1:num}}{${2:denom}}${0}
+endsnippet
+
+snippet fracp "1st partial deriv"
+\\frac{\partial${1:num}}{\partial${2:denom}}${0}
+endsnippet
+
+snippet fracpp "2nd partial deriv"
+\\frac{\partial${1:num}}{\partial${2:denom}}${0}
+endsnippet
+
+snippet rf "ref figure"
+Fig. \\ref{fig:${1}}${0}
+endsnippet
+
+snippet rt "ref table"
+Table \\ref{tab:${1}}${0}
+endsnippet
+
+snippet re "ref equation"
+Eq. \\ref{eq:${1}}${0}
+endsnippet
+
+snippet ci "cite"
+\\cite{${1:${VISUAL:ref}}}${0}
+endsnippet
+
+snippet cn "citeasnoun"
+\\citeasnoun{${1:${VISUAL:ref}}}${0}
+endsnippet
+
+#snippet fig "Figure environment" b
+#\begin{figure}[${2:htpb}]
+#	\centering
+#	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
+#	\caption[${5}]{${6}}
+#	\label{fig:${4/(.*\/)*(\w+)\.\w+/$2/}}
+#\end{figure}
+#${0}
+#endsnippet
+
+snippet fig "Figure environment" b
+\begin{figure}[${2:htpb}]
+	\centering
+	\includegraphics{${3:name.ext}}
+	\caption[${4}]{
+	${5}
+	}
+	\label{fig:${3/(.*\/)(.*)\.\w+/$2/}}
+\end{figure}
+${0}
+endsnippet
+
+snippet part "Part" b
+\part{${1:part name}}
+\label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/ga}}}
+
+$0
+endsnippet
+
+snippet cha "Chapter" b
+\chapter{${1:chapter name}}
+\label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet
+
+snippet sec "Section"
+\section{${1:${VISUAL:section name}}}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet
+
+snippet sub "Subsection"
+\subsection{${1:${VISUAL:subsection name}}}
+\label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet
+
+snippet ssub "Subsubsection"
+\subsubsection{${1:${VISUAL:subsubsection name}}}
+\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet

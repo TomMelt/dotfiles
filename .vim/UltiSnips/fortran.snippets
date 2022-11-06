@@ -1,0 +1,14 @@
+snippet pvar "print var"
+print *, '${1:var} = '
+print *,  ${1///}
+endsnippet
+snippet if "if block"
+if ($1) then
+$2
+end if
+endsnippet
+snippet ass "associate block"
+associate( $1 => $2 )
+$3
+end associate
+endsnippet

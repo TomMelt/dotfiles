@@ -1,0 +1,28 @@
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[alias]
+	co = checkout
+	d = difftool
+	s = status
+	a = add
+	c = commit
+	sl = stash list
+	sp = stash pop
+[include]
+	path = ~/.gitconfig.local
+[push]
+	default = simple
+[pull]
+	ff = only
+[safe]
+	directory = /home/firedrake/firedrake/src/PyOP2
+	directory = /home/firedrake/firedrake/src/firedrake
+[init]
+	defaultBranch = main

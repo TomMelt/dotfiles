@@ -1,0 +1,22 @@
+snippet tic "timer"
+${1:name} = TIC('`!p snip.rv = snip.basename`::${1///}')
+${0}TOC, ${1///}
+endsnippet
+snippet wtf "write to file"
+openw, 1, '${1:var}.bin'
+writeu, 1, ${1///}
+close, 1
+endsnippet
+snippet ptf "print to file"
+openw, 1, '${1:var}.bin'
+printf, 1, FORMAT = '(${2}e16.8)', ${1///}
+close, 1
+endsnippet
+snippet pvar "print var"
+print, '${1:var} = '
+print,  ${1///}
+endsnippet
+snippet pfl "print float array"
+print, '${1:var} = '
+print, FORMAT = '(5E16.8)', ${1///}
+endsnippet
