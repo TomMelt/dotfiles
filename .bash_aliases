@@ -6,6 +6,8 @@ alias bashreload='source $HOME/.bashrc'
 alias profile='vim $HOME/.bashrc'
 alias prettypath='echo $PATH | sed "s/:/\n/g" | sort | uniq -c'
 
+alias updatekeys='eval "$(tmux show-environment -s)"'
+
 # docker specific
 alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
 alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'

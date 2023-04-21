@@ -10,6 +10,7 @@
 [alias]
 	co = checkout
 	d = difftool
+	ds = diff --stat
 	s = status
 	a = add
 	c = commit

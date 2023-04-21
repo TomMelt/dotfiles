@@ -26,4 +26,4 @@ inoremap <buffer> <leader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumerate(<E
 
 "highlight anything over 79 chars
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-match OverLength /\%>79v.\+/
+match OverLength /\%>99v.\+/
