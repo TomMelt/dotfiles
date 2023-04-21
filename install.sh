@@ -16,8 +16,8 @@ then
 	# setup vundle submodule
 	#=======================
 	echo "Installing vundle submodule..."
-	git submodule init
-	git submodule update
+    mkdir -p .vim/bundle/
+    git submodule add -f https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 	echo "complete"
 
 elif [ "$choice" = "R" ]
