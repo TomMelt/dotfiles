@@ -1,11 +1,16 @@
 "run fortran script
-nnoremap <buffer> <F5> :silent make<CR> :copen<CR>
+nnoremap <buffer> <F5> :silent make<CR> :copen<CR><C-L>
 nnoremap <buffer> <F6> :silent !make -C build/ <CR> <C-L> :copen<CR>
 
 "debug fortran
-"set makeprg=gfortran\ %:t\ -o\ %:t:r
-set makeprg=make\ -C\ ./build/
-setlocal errorformat=%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
+"set makeprg=gfortran\ -fopenmp\ %:t\ -o\ %:t:r
+""set makeprg=make\ -C\ ./build/
+"setlocal errorformat=%E%f:%l:%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
+"setlocal efm+=%-G%.%# " All lines not matching any of the above patterns are ignored
+
+"camfort
+set makeprg=camfort\ array-check\ %
+setlocal efm=%.%#at\ \[%f\\,\ \(%l:%c\)%.%#\]\ %m
 setlocal efm+=%-G%.%# " All lines not matching any of the above patterns are ignored
 
 "comment
