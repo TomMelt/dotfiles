@@ -1,6 +1,4 @@
 alias vi='vim -p'
-alias paper='cd /home/melt/Dropbox/univerzita_karlova/Papers/CoupledHartreeFock/tex/; \
-    okular_terminal paper.pdf &'
 
 alias bashreload='source $HOME/.bashrc'
 alias profile='vim $HOME/.bashrc'
@@ -8,11 +6,27 @@ alias prettypath='echo $PATH | sed "s/:/\n/g" | sort | uniq -c'
 
 alias updatekeys='eval "$(tmux show-environment -s)"'
 
+# Have less display colours
+# from: https://wiki.archlinux.org/index.php/Color_output_in_console#man
+export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\e[1;33m'     # begin blink
+export LESS_TERMCAP_so=$'\e[01;46;38m' # begin reverse video
+export LESS_TERMCAP_us=$'\e[01;35m'    # begin underline
+export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
+export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
+export MANPAGER='less -sigR'
+
+# better default less
+alias less='less -igNR'
+
+# better default grep
+alias gg='grep -inIPR'
+
 # docker specific
 alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
 alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
-
-alias meld='singularity run /home/t/tm412/singularity-images/meld/meld.sif meld'
 
 export HISTCONTROL=ignoredups:erasedups # no duplicate entries
 export HISTSIZE=10000                   # big big history
@@ -24,6 +38,31 @@ bind '"\e[B": history-search-forward'
 export FZF_DEFAULT_COMMAND=""
 export FZF_CTRL_T_COMMAND=""
 export FZF_ALT_C_COMMAND="fd --type d"
+export FZF_DEFAULT_OPTS='-e'
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'tree -C {} | head -200'   "$@" ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
+  esac
+}
 
 okular_terminal () {
     okular $@ > /dev/null 2>&1
@@ -64,28 +103,4 @@ gf() {
     then
         vim $file +$line
     fi
-}
-
-# better default grep
-alias gg='grep -inIPR'
-
-# switch dev env for projects
-dev-env () {
-
-    module purge > /dev/null
-    module load git/2.35.2 cmake/3.21.2 melt-custom > /dev/null
-    project="$1"
-    compiler="$2"
-
-    case "$project" in
-        fusion*) case "$compiler" in
-            intel) module load intel/compilers/18 hdf5/intel/1.8.21 json-fortran/intel/8.3.0          > /dev/null ;;
-            gnu)   module load hdf5/gcc/1.8.21 blas/gcc/3.6.0 lapack/gcc/3.6.1 json-fortran/gcc/8.3.0 > /dev/null ;;
-            *) echo "option not supported" ;;
-        esac ;;
-        ulirs) module load idl/idl82; conda activate;;
-        *) echo "option not supported" ;;
-    esac
-
-    module list
 }
