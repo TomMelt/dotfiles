@@ -16,6 +16,8 @@
 	c = commit
 	sl = stash list
 	sp = stash pop
+	bd = branch -d
+	ba = branch -a
 [include]
 	path = ~/.gitconfig.local
 [push]
