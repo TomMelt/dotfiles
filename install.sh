@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files='.ctags .fdignore .gnuplot .tmux.conf .vim .vimrc .gitconfig .bash_aliases .mpl-style'
+files='.ctags .fdignore .gnuplot .tmux.conf .vimrc .gitconfig .bash_aliases .mpl-style'
 
 echo "(I)nstall or (R)emove?"
 
@@ -12,7 +12,22 @@ then
     cd $HOME
 
     echo "Copying dot files to $HOME"
-    for i in $files; do ln -sfv $HOME/.dotfiles/$i $HOME/$i ; done
+    for i in $files
+    do
+        dest_file=$HOME/$i
+        if [ ! -f "$dest_file" ]; then
+            ln -sv $HOME/.dotfiles/$i $dest_file
+        fi
+    done
+    echo "complete"
+
+    echo "Copying .vim to $HOME"
+    folder=$HOME/.vim
+    if [ -d "$folder" ]; then
+        echo "skipping... $folder already exists."
+    else
+        ln -sv $HOME/.dotfiles/.vim $folder
+    fi
     echo "complete"
 
     echo "Installing vundle submodule..."
@@ -21,9 +36,8 @@ then
         echo "skipping... $folder already exists."
     else
         mkdir -p $folder
-        cd $folder
-        git submodule add -f https://github.com/VundleVim/Vundle.vim.git Vundle.vim
-        cd $HOME
+        cd $HOME/.dotfiles
+        git submodule add -f https://github.com/VundleVim/Vundle.vim.git $folder/Vundle.vim
 
         echo "run the following to install plugins in vim:"
         echo "$ vim -c PluginInstall"
@@ -57,7 +71,8 @@ then
 elif [ "$choice" = "R" ]
 then
     echo "removing dot files from $HOME"
-    for i in $files; do rm -ivr $HOME/$i ; done
+    for i in $files; do rm -vr $HOME/$i ; done
+    rm -vr .vim
 else
     echo "Option not supported. Please try again."
 fi
