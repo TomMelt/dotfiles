@@ -21,6 +21,11 @@ then
     done
     echo "complete"
 
+    if [ -z "$(grep 'source ~/.bash_aliases' $HOME/.bashrc)" ]; then
+        echo "[ -f ~/.bash_aliases ] && source ~/.bash_aliases" >> $HOME/.bashrc && \
+        echo "adding bash_aliases to ~/.bashrc"
+    fi
+
     echo "Copying .vim to $HOME"
     folder=$HOME/.vim
     if [ -d "$folder" ]; then
