@@ -35,17 +35,16 @@ then
     fi
     echo "complete"
 
-    echo "Installing vundle submodule..."
-    folder=$HOME/.vim/bundle
-    if [ -d "$folder" ]; then
-        echo "skipping... $folder already exists."
+    echo "Installing vim plug..."
+    dest_file=$HOME/.vim/autoload/plug.vim
+    if [ -f "$dest_file" ]; then
+        echo "skipping... $dest_file already exists."
     else
-        mkdir -p $folder
-        cd $HOME/.dotfiles
-        git submodule add -f https://github.com/VundleVim/Vundle.vim.git $folder/Vundle.vim
-
+        mkdir -p $HOME/.vim/autoload
+        curl -fLo $HOME/.vim/autoload/plug.vim \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         echo "run the following to install plugins in vim:"
-        echo "$ vim -c PluginInstall"
+        echo "$ vim -c PlugInstall"
     fi
     echo "complete"
 
@@ -77,7 +76,7 @@ elif [ "$choice" = "R" ]
 then
     echo "removing dot files from $HOME"
     for i in $files; do rm -vr $HOME/$i ; done
-    rm -vr .vim
+    rm -vr $HOME/.vim
 else
     echo "Option not supported. Please try again."
 fi

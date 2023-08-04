@@ -5,31 +5,24 @@
 " PLUGINS: {{{1
 "==============
 
-set nocompatible     "  be iMproved, required
-filetype off         "  required
-set shell=/bin/bash  "  because I use fish in the terminal
+call plug#begin()
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+Plug 'tmhedberg/SimpylFold'
+Plug 'AndrewRadev/splitjoin.vim'
+"Plug 'lervag/vimtex'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-commentary'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'AndrewRadev/splitjoin.vim'
-"Plugin 'lervag/vimtex'
-
-call vundle#end()          "  required
-filetype plugin indent on  "  required
-syntax on                  "  enable syntax highlighting
+call plug#end()          " Automatically executes filetype plugin indent on and syntax enable
 
 " GENERAL SETTINGS: {{{1
 "=======================
