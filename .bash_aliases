@@ -72,6 +72,10 @@ jupyter_terminal () {
     jupyter-notebook $@ > /dev/null 2>&1
 }
 
+zm () {
+    sudo zfs load-key "$1" && sudo zfs mount "$1"
+}
+
 qf () {
     find . -name "$1"
 }
