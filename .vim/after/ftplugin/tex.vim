@@ -3,8 +3,8 @@ setlocal expandtab shiftwidth=2 tabstop=2
 
 set textwidth=100
 
+" nnoremap <buffer> <F5> :silent! !latexmk<CR><C-l>
 nnoremap <buffer> <F5> :silent! !make<CR><C-l>
-nnoremap <buffer> <S-F5> :silent! !make CoupledHartreeFock.bib<CR><C-l>
 
 "comment
 set commentstring=%\ %s
