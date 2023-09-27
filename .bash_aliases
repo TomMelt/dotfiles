@@ -32,8 +32,11 @@ export HISTCONTROL=ignoredups:erasedups # no duplicate entries
 export HISTSIZE=10000                   # big big history
 export HISTFILESIZE=10000               # big big history
 
+# better history searching
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
+shopt -s direxpand # expand ENV vars on tab complete - stops annoying prefix of \ e.g. \$HOME
 
 export FZF_DEFAULT_COMMAND=""
 export FZF_CTRL_T_COMMAND=""
