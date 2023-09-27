@@ -19,7 +19,7 @@ export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 export MANPAGER='less -sigR'
 
 # better default less
-alias less='less -igNR'
+alias less='less -igR'
 
 # better default grep
 alias gg='grep -inIPR'
