@@ -12,3 +12,14 @@ associate( $1 => $2 )
 $3
 end associate
 endsnippet
+snippet inter "interface block"
+interface $1
+module procedure $2
+end interface $1
+endsnippet
+snippet use "use statement"
+use :: $1, only : $2
+endsnippet
+snippet prec "common precision block"
+use, intrinsic :: iso_fortran_env, only : sp => real32, dp => real64
+endsnippet
