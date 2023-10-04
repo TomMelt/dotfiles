@@ -6,10 +6,9 @@
 	prompt = false
 [merge]
 	tool = vimdiff
-	conflictstyle = diff3
 [alias]
 	co = checkout
-	d = difftool
+	d = difftool --trust-exit-code
 	ds = diff --stat
 	s = status
 	a = add
@@ -18,6 +17,7 @@
 	sp = stash pop
 	bd = branch -d
 	ba = branch -a
+	b = branch
 [include]
 	path = ~/.gitconfig.local
 [push]
