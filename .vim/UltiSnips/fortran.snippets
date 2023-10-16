@@ -23,3 +23,25 @@ endsnippet
 snippet prec "common precision block"
 use, intrinsic :: iso_fortran_env, only : sp => real32, dp => real64
 endsnippet
+
+# Variables definitions
+# Boolean
+snippet bool
+logical :: ${0}
+endsnippet
+# Integer
+snippet int
+integer :: ${0}
+endsnippet
+# real
+snippet real
+real${1:(kind=wp)} :: ${0}
+endsnippet
+# Double Precision
+snippet double
+double precision :: ${0}
+endsnippet
+# Char
+snippet str
+character(len=${1:*}) :: ${0:}
+endsnippet
