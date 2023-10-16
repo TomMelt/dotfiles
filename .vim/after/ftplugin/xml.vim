@@ -3,4 +3,4 @@ setlocal shiftwidth=2
 setlocal tabstop=2
 
 "comment
-set commentstring=#\ %s
+set commentstring=<!--%s-->
