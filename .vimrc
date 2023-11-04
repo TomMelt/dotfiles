@@ -7,7 +7,6 @@
 
 call plug#begin()
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
@@ -20,6 +19,7 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'tmhedberg/SimpylFold'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'yegappan/lsp'
 "Plug 'lervag/vimtex'
 
 call plug#end()          " Automatically executes filetype plugin indent on and syntax enable
@@ -74,6 +74,7 @@ vnoremap < <gv
 " navigate quickfix searches
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
+
 " navigate jump list
 " need to remap TAB before it is used for changing tabs
 nnoremap ]j <TAB>
@@ -82,7 +83,7 @@ nnoremap [j <C-o>
 command! MakeTags !ctags -R .
 nnoremap <leader>t :silent! MakeTags<CR><C-l>
 "source vimrc
-nnoremap <leader>r :so ~/.vimrc<CR>
+nnoremap <leader>R :so ~/.vimrc<CR>
 " CTRL-P to fuzzy find files
 nnoremap <C-p> :Files <CR>
 
@@ -205,3 +206,44 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 let g:splitjoin_python_brackets_on_separate_lines = 1
 let g:splitjoin_trailing_comma = 1
+
+au BufRead,BufNewFile *.fypp set filetype=fortran
+
+" LSP: {{{1
+"================
+			" \ name: 'clang',
+			" \ filetype: ['c', 'cpp'],
+			" \ path: '/usr/local/bin/clangd',
+			" \ args: ['--background-index']
+			" \ },
+
+let lspServers = [#{
+			\ name: 'clang',
+			\ filetype: ['c', 'cpp'],
+			\ path: '/usr/bin/clangd',
+			\ args: ['--background-index']
+			\ },
+			\ #{
+			\ name: 'fortls',
+			\ filetype: 'fortran',
+			\ path: '/home/melt/miniconda3/envs/fortls/bin/fortls',
+			\ args: ['--hover_language', 'fortran', '--lowercase_intrinsics', '--notify_init', '--hover_signature', '--use_signature_help'],
+			\ }]
+autocmd VimEnter * call LspAddServer(lspServers)
+
+
+let lspOpts = #{autoHighlightDiags: v:true}
+autocmd VimEnter * call LspOptionsSet(lspOpts)
+
+nnoremap <leader>D <cmd>LspDocumentSymbol<CR>
+nnoremap <leader>H <cmd>LspSwitchSourceHeader<CR>
+nnoremap <leader>d <cmd>tab LspGotoDefinition<CR>
+nnoremap <leader>r <cmd>LspRename<CR>
+nnoremap <leader>h <cmd>LspHover<CR>
+nnoremap <leader>s <cmd>LspShowReferences<CR>
+" nnoremap <leader>c <cmd>LspDiag current<CR>
+
+nnoremap ]w <cmd>LspDiag next<CR>
+nnoremap [w <cmd>LspDiag prev<CR>
+nnoremap ]e <cmd>lnext<CR>
+nnoremap [e <cmd>lprev<CR>
