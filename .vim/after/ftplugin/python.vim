@@ -2,13 +2,15 @@
 "nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!python3 "%" "data/test3.png" <CR>
 nnoremap <buffer> <F5> :silent !clear<CR>:!python "%"<CR>
 
+autocmd BufWritePre *.py :LspFormat
+
 set expandtab
 set tabstop=4
 set shiftwidth=4
 
 "debug python
 compiler pyunit
-setlocal makeprg=flake8\ %
+setlocal makeprg=flake8\ --ignore\ E501\ %
 setlocal errorformat=%E%f:%l:\ could\ not\ compile,
                      \%-Z%p^,
                      \%A%f:%l:%c:\ %t%n\ %m,

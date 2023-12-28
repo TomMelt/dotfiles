@@ -224,6 +224,12 @@ let lspServers = [#{
 			\ args: ['--background-index']
 			\ },
 			\ #{
+			\ name: 'pylsp',
+			\ filetype: 'python',
+			\ path: '/home/melt/miniconda3/envs/pylsp/bin/pylsp',
+			\ args: [],
+			\ },
+			\ #{
 			\ name: 'fortls',
 			\ filetype: 'fortran',
 			\ path: '/home/melt/miniconda3/envs/fortls/bin/fortls',
