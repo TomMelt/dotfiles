@@ -18,6 +18,9 @@
 	bd = branch -d
 	ba = branch -a
 	b = branch
+	l = log
+	lo = log --oneline
+	ln = log --name-only --oneline
 [include]
 	path = ~/.gitconfig.local
 [push]
