@@ -208,6 +208,7 @@ let g:splitjoin_python_brackets_on_separate_lines = 1
 let g:splitjoin_trailing_comma = 1
 
 au BufRead,BufNewFile *.fypp set filetype=fortran
+au BufRead,BufNewFile *.mdb set filetype=mdb
 au BufRead,BufNewFile *.nc set filetype=nc | set syn=cdl
 
 " LSP: {{{1
