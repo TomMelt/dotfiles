@@ -86,6 +86,7 @@ nnoremap <leader>t :silent! MakeTags<CR><C-l>
 nnoremap <leader>R :so ~/.vimrc<CR>
 " CTRL-P to fuzzy find files
 nnoremap <C-p> :Files <CR>
+nnoremap <C-o> :Buffers <CR>
 
 " TMUX SETTINGS: {{{1
 "====================
@@ -105,12 +106,12 @@ set <S-F8>=[19;2~
 "===================
 
 set splitright               "  default split right
-set tabpagemax=100           "  increase max. no. of tabs
-set switchbuf=usetab         "  if already open jump to tab
-set switchbuf+=newtab        "  otherwise use new tab
+" set tabpagemax=100           "  increase max. no. of tabs
+" set switchbuf=usetab         "  if already open jump to tab
+" set switchbuf+=newtab        "  otherwise use new tab
 
-nnoremap <TAB> :tabn<CR><C-g>
-nnoremap <S-TAB> :tabN<CR><C-g>
+nnoremap <TAB> :bn<CR><C-g>
+nnoremap <S-TAB> :bN<CR><C-g>
 "
 "  close current tab
 nnoremap <F8> :bd<CR>
@@ -118,7 +119,7 @@ nnoremap <F8> :bd<CR>
 nnoremap <S-F8> :qa<CR>
 
 "  open tag in new tab
-nnoremap <C-W><C-T> <C-W>]<C-W>T<C-G>
+" nnoremap <C-W><C-T> <C-W>]<C-W>T<C-G>
 
 "  moving between splits
 nnoremap <Left> <C-W><C-H>
@@ -133,7 +134,6 @@ nnoremap <S-Down> <C-W>2+
 nnoremap <S-Up> <C-W>2-
 
 let g:fzf_action = {
-			\ 'enter': 'tab split',
 			\ 'ctrl-t': 'tab split',
 			\ 'ctrl-x': 'split',
 			\ 'ctrl-v': 'vsplit' }
@@ -221,7 +221,7 @@ au BufRead,BufNewFile *.nc set filetype=nc | set syn=cdl
 
 let lspServers = [#{
 			\ name: 'clang',
-			\ filetype: ['c', 'cpp'],
+			\ filetype: ['c', 'cpp', 'h', 'hpp'],
 			\ path: '/usr/bin/clangd',
 			\ args: ['--background-index']
 			\ },
@@ -245,7 +245,7 @@ autocmd VimEnter * call LspOptionsSet(lspOpts)
 
 nnoremap <leader>D <cmd>LspDocumentSymbol<CR>
 nnoremap <leader>H <cmd>LspSwitchSourceHeader<CR>
-nnoremap <leader>d <cmd>tab LspGotoDefinition<CR>
+nnoremap <leader>d <cmd>LspGotoDefinition<CR>
 nnoremap <leader>r <cmd>LspRename<CR>
 nnoremap <leader>h <cmd>LspHover<CR>
 nnoremap <leader>s <cmd>LspShowReferences<CR>
@@ -255,3 +255,7 @@ nnoremap ]w <cmd>LspDiag next<CR>
 nnoremap [w <cmd>LspDiag prev<CR>
 nnoremap ]e <cmd>lnext<CR>
 nnoremap [e <cmd>lprev<CR>
+
+" mutli-cursor alternative replace
+nnoremap <silent> <C-q> :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> <C-q> "sy:let @/=@s<CR>cgn

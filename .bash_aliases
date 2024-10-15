@@ -1,4 +1,4 @@
-alias vi='vim -p'
+alias vi='vim'
 
 alias bashreload='source $HOME/.bashrc'
 alias profile='vim $HOME/.bashrc'

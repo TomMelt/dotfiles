@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	excludesfile = /home/melt/.gitignore
 [diff]
 	tool = vimdiff
 [difftool]
@@ -14,6 +15,7 @@
 	a = add
 	c = commit
 	sl = stash list
+	sm = stash -m
 	sp = stash pop
 	bd = branch -d
 	ba = branch -a

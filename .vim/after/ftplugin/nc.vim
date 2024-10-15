@@ -1,5 +1,5 @@
 if !exists("g:ncdump_cmd")
-    let ncdump_cmd= "ncdump"
+    let ncdump_cmd= "ncdump -l 100"
 endif
 
 if !executable(substitute(ncdump_cmd,'\s\+.*$','',''))

@@ -2,10 +2,6 @@
 nnoremap <buffer> j gj
 nnoremap <buffer> k gk
 
-
-"make header underlined
-nnoremap <buffer> <leader>h yypV:s/./=/g<CR>:nohls<CR>o<Esc>
-
 nnoremap <buffer> <F5> :silent !make -C docs/ clean<CR>:silent !make -C docs/ html<CR><C-L>
 
 set tabstop=3 softtabstop=0 expandtab shiftwidth=3 smarttab

@@ -1,6 +1,6 @@
 syntax match mdbComment /#.*$/
 
-syn keyword mdbKeywords command execute info interact quit select shell status update_winsize
+syn keyword mdbKeywords command execute plot interact quit select shell broadcast
 syn match   mdbNumber    "\<[0-9-]\+\>"
 syn match   mdbCharacter "[\?\!]"
 hi def link mdbComment Comment
