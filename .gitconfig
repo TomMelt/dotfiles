@@ -9,6 +9,7 @@
 	tool = vimdiff
 [alias]
 	co = checkout
+	sw = switch
 	d = difftool --trust-exit-code
 	ds = diff --stat
 	s = status
