@@ -230,13 +230,13 @@ let lspServers = [#{
 			\ #{
 			\ name: 'pylsp',
 			\ filetype: 'python',
-			\ path: '/home/melt/miniconda3/envs/pylsp/bin/pylsp',
+			\ path: '/home/melt/.dotfiles/.vim/pylsp/bin/pylsp',
 			\ args: [],
 			\ },
 			\ #{
 			\ name: 'fortls',
 			\ filetype: 'fortran',
-			\ path: '/home/melt/miniconda3/envs/fortls/bin/fortls',
+			\ path: '/home/melt/.dotfiles/.vim/fortls/bin/fortls',
 			\ args: ['--hover_language', 'fortran', '--lowercase_intrinsics', '--notify_init', '--hover_signature', '--use_signature_help'],
 			\ }]
 autocmd VimEnter * call LspAddServer(lspServers)
@@ -249,7 +249,7 @@ nnoremap <leader>D <cmd>LspDocumentSymbol<CR>
 nnoremap <leader>H <cmd>LspSwitchSourceHeader<CR>
 nnoremap <leader>d <cmd>LspGotoDefinition<CR>
 nnoremap <leader>r <cmd>LspRename<CR>
-nnoremap <leader>h <cmd>LspHover<CR>
+nnoremap <S-k>     <cmd>LspHover<CR>
 nnoremap <leader>s <cmd>LspShowReferences<CR>
 " nnoremap <leader>c <cmd>LspDiag current<CR>
 
