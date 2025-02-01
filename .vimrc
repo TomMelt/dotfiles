@@ -74,6 +74,8 @@ vnoremap < <gv
 " navigate quickfix searches
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
+" do not require save before switching buffer
+set hidden
 
 " navigate jump list
 " need to remap TAB before it is used for changing tabs
