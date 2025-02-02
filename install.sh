@@ -48,17 +48,24 @@ then
     fi
     echo "complete"
 
-    echo "installing miniconda"
-    folder=$HOME/miniconda3
-    if [ -d "$folder" ]; then
-        echo "skipping... $folder already exists."
-    else
-        cd ~
-        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-        bash Miniconda3-latest-Linux-x86_64.sh -b
-        $folder/bin/conda init bash
-        $folder/bin/conda config --set auto_activate_base false
-    fi
+    echo "installing lsps..."
+    for lsp in pylsp fortls
+    do
+        folder=$HOME/.vim/$lsp
+        if [ -d "$folder" ]; then
+            echo "skipping... $folder already exists."
+        else
+            python3 -m venv $folder
+            source ${folder}/bin/activate
+            if [ "$lsp" = "fortls" ]
+            then
+                pip install fortls
+            elif [ "$lsp" = "pylsp" ]
+            then
+                pip install "python-lsp-server[all]" "black==24.3.0" "flake8==7.0.0"
+            fi
+        fi
+    done
     echo "complete"
 
     echo "installing fzf"
