@@ -1,0 +1,11 @@
+{
+  "languageserver": {
+    "fortran": {
+      "command": "/glade/u/home/tmeltzer/.envs/fortls/bin/fortls",
+      "filetypes": ["fortran"],
+      "args": ["--hover_language", "fortran", "--lowercase_intrinsics", "--notify_init", "--hover_signature", "--use_signature_help"],
+      "rootPatterns": [".fortls.json", ".git/"]
+    }
+  },
+  "suggest.noselect": true
+}
