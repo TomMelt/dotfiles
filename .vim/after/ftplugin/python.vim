@@ -2,7 +2,7 @@
 "nnoremap <buffer> <F5> :silent exec '!clear' <CR> :!python3 "%" "data/test3.png" <CR>
 nnoremap <buffer> <F5> :silent !clear<CR>:!python "%"<CR>
 
-autocmd BufWritePre *.py :LspFormat
+autocmd BufWritePre *.py :Format
 
 set expandtab
 set tabstop=4

@@ -1,11 +1,24 @@
 {
+  "suggest.noselect": true,
+  "inlayHint.enable": false,
   "languageserver": {
     "fortran": {
-      "command": "/glade/u/home/tmeltzer/.envs/fortls/bin/fortls",
+      "command": "/home/melt/.vim/fortls/bin/fortls",
       "filetypes": ["fortran"],
       "args": ["--hover_language", "fortran", "--lowercase_intrinsics", "--notify_init", "--hover_signature", "--use_signature_help"],
       "rootPatterns": [".fortls.json", ".git/"]
+    },
+    "clang": {
+      "command": "/usr/bin/clangd",
+      "filetypes": ["c", "cpp", "h", "hpp"],
+      "args": ["--background-index"],
+      "rootPatterns": [".clangd", ".git/"]
+    },
+    "pylsp": {
+      "command": "/home/melt/.vim/pylsp/bin/pylsp",
+      "filetypes": ["python"],
+      "args": [],
+      "rootPatterns": ["pyproject.toml", ".git/"]
     }
-  },
-  "suggest.noselect": true
+  }
 }
