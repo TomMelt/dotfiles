@@ -21,8 +21,6 @@ nnoremap <buffer> <F6> :silent make<CR> <C-L> :copen<CR>
 "comment
 set commentstring=#\ %s
 
-vnoremap <buffer> <leader>f :!format_arguments<CR>mm/#formatoptionEND<CR>mnkV`m=`ndd
-
 "enumerate for loop
 inoremap <buffer> <leader>en <Esc>mm?for <CR>f ai, <Esc>/ in <CR>f aenumerate(<Esc>$i)<Esc>`m:let @/ = ""<CR>i
 
