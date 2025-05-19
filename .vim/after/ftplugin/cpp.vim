@@ -7,14 +7,3 @@ set tw=100
 
 "comment
 set commentstring=//\ %s
-
-
-function FormatBuffer()
-    if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
-        let cursor_pos = getpos('.')
-        :%!clang-format-18
-        call setpos('.', cursor_pos)
-    endif
-endfunction
-
-autocmd BufWritePre *.h,*.hpp,*.c,*.cpp :silent call FormatBuffer()
