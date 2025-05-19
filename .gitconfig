@@ -36,3 +36,5 @@
 	directory = /home/firedrake/firedrake/src/firedrake
 [init]
 	defaultBranch = main
+[log]
+	date = local
