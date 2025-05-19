@@ -25,6 +25,7 @@
 	lo = log --oneline
 	los = log --oneline --stat
 	lon = log --oneline --name-only
+	wls = worktree list
 [include]
 	path = ~/.gitconfig.local
 [push]
