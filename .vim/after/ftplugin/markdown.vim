@@ -15,7 +15,7 @@ nnoremap <buffer> <leader>h yypV:s/./=/g<CR>:nohls<CR>o<Esc>
 vnoremap <buffer> <leader>c "dc```<C-R>d```<Esc>
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set tw=128
+set tw=100
 
 "load custom spellfile for a project
 let b:spellfile = 'spellfile.en.utf-8.add'
