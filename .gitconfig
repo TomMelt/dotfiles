@@ -12,7 +12,7 @@
 	sw = switch
 	d = difftool --trust-exit-code
 	ds = diff --stat
-	s = status
+	s = status -uno
 	a = add
 	c = commit
 	sl = stash list
@@ -29,6 +29,7 @@
 	path = ~/.gitconfig.local
 [push]
 	default = simple
+	autoSetupRemote = true
 [pull]
 	ff = only
 [safe]
