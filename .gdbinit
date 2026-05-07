@@ -22,8 +22,6 @@ from libstdcxx.v6.printers import register_libstdcxx_printers
 register_libstdcxx_printers (None)
 end
 
-source ~/gdb_imshow.py
-
 # force GDB to use active venv
 python
 import os
@@ -33,3 +31,5 @@ paths = subprocess.check_output('python -c "import os; import sys;print(os.lines
 # Extend GDB's Python's search path
 sys.path.extend(paths)
 end
+
+source ~/gdb_imshow.py
