@@ -2,6 +2,10 @@ add-auto-load-safe-path /software/valgrind/libexec/valgrind/valgrind-monitor.py
 source /software/valgrind/libexec/valgrind/valgrind-monitor.py
 set debuginfod enabled off
 
+set confirm off
+set breakpoint pending on
+set pagination off
+
 python
 print("loading eigen prettyprinters...")
 import sys
@@ -13,28 +17,18 @@ end
 python
 print("loading stdc++ prettyprinters...")
 import sys
-sys.path.insert(0, '/software/gdb-cpp-stl-pretty-printer')
+sys.path.insert(0, '/usr/share/gcc/python')
 from libstdcxx.v6.printers import register_libstdcxx_printers
 register_libstdcxx_printers (None)
 end
 
-# python
-# import os
-# import sys
-# if 'GFT_DIR' not in os.environ:
-#    print('WARNING: environmental var GFT_DIR not found')
-# else:
-#    sys.path.insert(0, os.path.expanduser(os.environ['GFT_DIR']))
-#    import gdb_fortran_tools
-# end
+source ~/gdb_imshow.py
 
-# Update GDB's Python paths with the `sys.path` values of the local Python installation,
-# whether that is brew'ed Python, a virtualenv, or another system python.
+# force GDB to use active venv
 python
 import os
 import subprocess
 import sys
-# Execute a Python using the user's shell and pull out the sys.path (for site-packages)
 paths = subprocess.check_output('python -c "import os; import sys;print(os.linesep.join(sys.path).strip())"',shell=True).decode("utf-8").split()
 # Extend GDB's Python's search path
 sys.path.extend(paths)
