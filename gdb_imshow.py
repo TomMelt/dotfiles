@@ -23,8 +23,14 @@ class ImshowCommand(gdb.Command):
         parser.add_argument("nx", help="Width (number of columns)")
         parser.add_argument("ny", help="Height (number of rows)")
         parser.add_argument("--stride", type=int, default=1, help="Element stride (default: 1)")
-        parser.add_argument("--dtype", default="double", choices=["int", "float", "double"], 
+        parser.add_argument("--dtype", default="double", choices=["int", "float", "double"],
                             help="Data type (default: double)")
+        parser.add_argument("--cmap", default="viridis",
+                            help="Colormap to use (default: viridis)")
+        parser.add_argument("--vmin", type=float, default=None,
+                            help="Lower limit for colormap (default: img.min())")
+        parser.add_argument("--vmax", type=float, default=None,
+                            help="Upper limit for colormap (default: img.max())")
 
         try:
             parsed = parser.parse_args(args)
@@ -83,7 +89,9 @@ class ImshowCommand(gdb.Command):
         # Visualize
         plt.figure(figsize=(8, 6))
         plt.title(f"GDB Memory: {parsed.address} ({parsed.nx}x{parsed.ny})")
-        plt.imshow(img, cmap='viridis')
+        vmin = parsed.vmin if parsed.vmin is not None else img.min()
+        vmax = parsed.vmax if parsed.vmax is not None else img.max()
+        plt.imshow(img, cmap=parsed.cmap, vmin=vmin, vmax=vmax)
         plt.colorbar()
         plt.savefig('img.png')
         plt.show()
